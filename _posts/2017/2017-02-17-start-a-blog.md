@@ -8,11 +8,12 @@ comments: true
 ---
 
 #### Github로 블로그 만들기 
-다음의 링크에서 제공하는 방법을 따라하면 github에서 손쉽게 블로그를 생성할 수 있다
-http://thdev.net/653
+다음의 [링크](http://thdev.net/653)에서 제공하는 방법을 따라하면 github에서 손쉽게 블로그를 생성할 수 있다
+
 
 #### 검색 사이트에서 검색이 되도록 설정
 블로그를 생성했으면 다음으로 검색사이트에서 검색이 되도록 설정해야 한다 
-다음 링크에서는 그림을 통해 순차적으로 쉽게 설명하고 있다 
-http://jinyongjeong.github.io/2017/01/13/blog_make_searched/
+다음 [링크](http://jinyongjeong.github.io/2017/01/13/blog_make_searched/)에서는 그림을 통해 순차적으로 쉽게 설명하고 있다 
+
+
 
