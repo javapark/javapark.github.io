@@ -1,6 +1,6 @@
 ---
 layout: post
-title: post 계정 만료일 지정
+title: postgres 계정 만료일 지정
 categories: [postgres]
 tags: [postgres]
 description: postgres 계정 만료일 지정하기
