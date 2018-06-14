@@ -1,8 +1,8 @@
 ---
 layout: post
 title: [eclipse] Missing artifact jdk.tools jdk.tools jar 1.7.0_05
-categories: [java,maven,eclipse]
-tags: [java,maven,eclipse]
+categories: [java, maven, eclipse]
+tags: [java, maven, eclipse]
 description: Maven error
 ---
 
