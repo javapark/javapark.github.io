@@ -3,7 +3,7 @@ layout: post
 title: Missing artifact jdk.tools jdk.tools jar 1.7.0_05
 categories: [java]
 tags: [java]
-description: Maven error
+description: Eclipse 에서 발생한 Maven 오류를 해결해보자
 ---
 
 ### 현상
