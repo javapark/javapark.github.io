@@ -1,40 +1,22 @@
 ---
 layout: post
-title: Template
-categories: [general, demo]
-tags: [demo]
-description: Sample placeholder post.
+title: [eclipse] Missing artifact jdk.tools:jdk.tools:jar:1.7.0_05
+categories: [java,maven,eclipse]
+tags: [java,maven,eclipse]
+description: Maven error
 ---
 
-# 큰 제목
-큰 제목을 테스트 한다 다음 라인은 엔터 두번을 눌러 구분한다 
+### 현상
+![eclipse message](https://user-images.githubusercontent.com/288315/41399109-6a165914-6ff4-11e8-8492-979b37ac631b.png)
 
-다음라인
+Eclipse 에서 다음과 같은 오류가 발생한다.
+오류내용 ==> Missing artifact jdk.tools:jdk.tools:jar:1.7.0_05 
 
-## 중간 제목
-코드 하일라이트
+### 해결
+![eclipse.ini 수정](https://user-images.githubusercontent.com/288315/41399079-5628245a-6ff4-11e8-8eac-ac00310d0282.png)
 
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-
-### 작은 제목
-
-*이탤릭체*, _이탤릭체_
-
-**볼드체**, __볼드체__
-
-[링크명](http://www.example.com), [링크명](http://www.example.com "사이트 제목")
-
-
->문단.
-
-1. 첫 번째
-2. 두 번째
-3. 세 번째
-
-- 첫 번째
-- 두 번째
-- 세 번째
+eclipse.ini 파일에 -vm 을 지정한다.
+```
+-vm
+C:\[JDK경로]\jre\bin\server\jvm.dll
+```
