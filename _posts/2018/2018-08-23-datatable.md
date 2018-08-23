@@ -1,8 +1,8 @@
 ---
 layout: post
 title: DataTables warning table id=sample_table - Cannot reinitialise DataTable ~ 
-categories: [jquery, dataTable]
-tags: [jquery, dataTable]
+categories: [jquery, datatable]
+tags: [jquery, datatable]
 description: DataTables warning table id
 ---
 
