@@ -54,6 +54,7 @@ description: DataTables warning: table id=sample_table - Cannot reinitialise Dat
    DataTables warning: table id=sample_table - Cannot reinitialise DataTable. For more information about this error, please see http://datatables.net/tn/3
    ```
 
+
 ### 해결
 
 초기화 후 컬럼, 데이터 갱신전에 destory, empty 작업을 해줘야 합니다. 
