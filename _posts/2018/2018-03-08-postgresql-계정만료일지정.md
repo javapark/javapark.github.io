@@ -4,6 +4,7 @@ title: postgres 계정 만료일 지정
 categories: [postgres]
 tags: [postgres]
 description: postgres 계정 만료일 지정하기
+comments: true
 ---
 
 postgres 사용자 계정 만료일 확인

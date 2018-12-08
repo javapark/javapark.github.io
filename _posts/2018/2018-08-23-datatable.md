@@ -4,6 +4,7 @@ title: DataTables warning table id=sample_table - Cannot reinitialise DataTable 
 categories: [datatable]
 tags: [datatable]
 description: DataTables warning table id
+comments: true
 ---
 
 ### 현상
