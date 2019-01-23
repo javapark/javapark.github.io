@@ -79,6 +79,7 @@ Warning:
 
 
 # tomcat server.xml 수정
+- 위에서 생성한 키를 tomcat 의 server.xml 에 반영한다. port 의 경우 https 의 기본포트 443 을 이용하고 .keysotre 경로 및 storepass 를 지정하면 https 로 접근할 수 있다.   
 
 ```xml   
 <Connector SSLEnabled="true" clientAuth="false" keystoreFile="/data/ssl/.keystore" keystorePass="changeit" maxThreads="200" port="443" protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" secure="true" sslProtocol="TLS"/>
