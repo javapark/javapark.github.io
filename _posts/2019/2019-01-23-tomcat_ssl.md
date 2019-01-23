@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 톰캣 SSL 구성
+title: Tomcat 에 SSL 을 구성해보자
 categories: [https]
 tags: [https, tomcat, ssl]
 description: 톰캣 SSL 구성에 대해 간단하게 알아본다.
