@@ -14,7 +14,7 @@ comments: true
 # keystore 생성
 keytool -genkey 를 이용하여 키 쌍을 생성한다. 이때 부가정보를 추가 입력해야 한다.
 
-<pre>
+```
 C:\data\ssl>keytool -genkey -help
 keytool -genkeypair [OPTION]...
 
@@ -75,13 +75,13 @@ tomcat 별칭에 대한 항목이 성공적으로 임포트되었습니다.
 
 Warning:
 ".keystore"을(를) Non JKS/JCEKS(으)로 이전했습니다. JKS 키 저장소가 ".keystore.old"(으)로 백업되었습니다.
-</pre>
+```
 
 # tomcat server.xml 수정
 
-<pre>
+```xml
 <Connector SSLEnabled="true" clientAuth="false" keystoreFile="/data/ssl/.keystore" keystorePass="changeit" maxThreads="200" port="443" protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" secure="true" sslProtocol="TLS"/>
-</pre>
+```
 
 
 # 참고자료
