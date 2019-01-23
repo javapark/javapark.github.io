@@ -77,6 +77,9 @@ Warning:
 ".keystore"을(를) Non JKS/JCEKS(으)로 이전했습니다. JKS 키 저장소가 ".keystore.old"(으)로 백업되었습니다.
 ```   
 
+C:\data\ssl>keytool -genkey -validity 365 -alias tomcat -keyalg RSA -keystore .keystore
+C:\data\ssl>keytool -importkeystore -srckeystore .keystore -destkeystore .keystore -deststoretype pkcs12
+
 
 # tomcat server.xml 수정
 - 위에서 생성한 키를 tomcat 의 server.xml 에 반영한다. port 의 경우 https 의 기본포트 443 을 이용하고 .keysotre 경로 및 storepass 를 지정하면 https 로 접근할 수 있다.   
