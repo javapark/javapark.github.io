@@ -1,8 +1,8 @@
 ---
 layout: post
 title: javascript chart library 목록
-categories: [javascript,chart]
-tags: [javascript,chart]
+categories: [javascript]
+tags: [chart]
 description: javascript chart library 목록
 comments: true
 ---
