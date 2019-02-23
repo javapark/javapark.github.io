@@ -19,6 +19,3 @@ javascript chart library 목록
 |Flot|http://www.flotcharts.org/ | |
 |jqplot|http://www.jqplot.com/ | |
 |jui chart|http://chartplay.jui.io/ | |
-
-## 참고
-- 
