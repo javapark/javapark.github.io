@@ -6,6 +6,11 @@ module.exports = {
   themeConfig: {
     logo: "https://avatars.githubusercontent.com/u/288315?s=400&v=4", // 로고 이미지
     // sidebar :'auto'
+    nav: [
+      {text: 'Home', link : '/'},
+      {text: 'About', link : '/about/'},
+      {text: 'Repo', link : 'https://github.com/javapark/javapark.github.io'},
+    ],
     sidebar,
     // ,nav: [
     //   { text: 'Home', link: '/' },
