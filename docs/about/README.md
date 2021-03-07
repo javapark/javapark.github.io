@@ -8,7 +8,7 @@
 - Spring Security
 
 ### Python
-- Fkask
+- Flask
 
 ### GIT
 - 
