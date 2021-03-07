@@ -1,7 +1,6 @@
 const sidebar = require("./sidebar");
 
 module.exports = {
-  base: "/",
   title: "Today I Learned",
   description: "Javapark",
   themeConfig: {
