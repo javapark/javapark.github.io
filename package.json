@@ -1,0 +1,22 @@
+{
+  "name": "TIL",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/javapark/TIL.git",
+  "author": "javapark <javaparknet@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-blog": "^1.9.4",
+    "@vuepress/plugin-nprogress": "^1.8.2",
+    "@vuepress/theme-blog": "2.3.3",
+    "@vuepress/theme-default": "^1.8.2",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-google-adsense": "0.2.1",
+    "vuepress-plugin-sitemap": "^2.3.1"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
