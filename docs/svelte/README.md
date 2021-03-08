@@ -1,5 +1,5 @@
 # Svelte
-다음은 [스벨트 입문](https://www.inflearn.com/course/%EC%8A%A4%EB%B2%A8%ED%8A%B8-%EC%9E%85%EB%AC%B8-%EA%B0%80%EC%9D%B4%EB%93%9C) 강좌를 들으면서 내용을 정리한 것이다. 다른 UI 프레임워크를 알아보다가 [이제 React.js를 버릴 때가 왔다](https://seokjun.kim/time-to-stop-react/) 글을 보고 스벨트를 알았고, 무료 강좌까지 2시간을 따라하면서 듣게 되었다. 스벨트에 대해서 긍정적인 생각들을 많이 하게 된 알찬 강의 였다. 기록 차원에서 들었던 내용들은 아래에 적어 둔다.
+다음은 [스벨트 입문](https://www.inflearn.com/course/%EC%8A%A4%EB%B2%A8%ED%8A%B8-%EC%9E%85%EB%AC%B8-%EA%B0%80%EC%9D%B4%EB%93%9C) 강좌를 들으면서 내용을 정리한 것이다. 다른 UI 프레임워크를 알아보다가 [이제 React.js를 버릴 때가 왔다](https://seokjun.kim/time-to-stop-react/) 글을 보고 스벨트를 알았고, 무료 강좌까지 2시간을 따라하면서 듣게 되었다. 스벨트에 대해서 긍정적인 생각들을 많이 하게 된 알찬 강의 였다. 
 
 [[toc]]
 
