@@ -1,19 +1,8 @@
-const vuepress = "/Vuepress";
-const CodeSpitz = "/CodeSpitz";
-const Javascript = "/Javascript";
-const JavascriptDomain = `${Javascript}/Domain`;
-const JavascriptDesign = `${Javascript}/Design`;
-const CodeSpitzNBJS = `${CodeSpitz}/None-Blocking-Javascript`;
-const CodeSpitzOOJS = `${CodeSpitz}/Object-Oriented-Javascript`;
-const Book = `/Book`;
-const OOPPrinciple = `${Book}/OOP-Principle`;
-const Review2020 = `/Review/2020-year`;
-
 module.exports = [
   {
     title: "VuePress",
     children: [
-        { title: "VuePress 시작하기", path: `/vuepress/vuepress` }
+        { title: "VuePress 시작하기", path: `/vuepress/vuepress_started` }
         ,{ title: "VuePress Plugins", path: `/vuepress/vuepress_plugins` }
     ],
   },

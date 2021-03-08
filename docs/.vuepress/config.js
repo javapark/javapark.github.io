@@ -9,6 +9,7 @@ module.exports = {
     nav: [
       {text: 'Home', link : '/'},
       {text: 'About', link : '/about/'},
+      {text: 'Tags', link : '/tag/'},
       {text: 'Repo', link : 'https://github.com/javapark/javapark.github.io'},
     ],
     sidebar,
@@ -23,16 +24,16 @@ module.exports = {
     //   }
     // ]
   },
-  head: [
-    [
-      "script",
-      {
-        "data-ad-client": "ca-pub-4039568972335207",
-        async: true,
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-      },
-    ],
-  ],
+  // head: [
+  //   [
+  //     "script",
+  //     {
+  //       "data-ad-client": "ca-pub-4039568972335207",
+  //       async: true,
+  //       src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  //     },
+  //   ],
+  // ],
   markdown: {
     lineNumbers: true,
   },
@@ -40,12 +41,12 @@ module.exports = {
   plugins: [
     ["@vuepress/blog"],
     ["@vuepress/nprogress"],
-    // [
-    //   "vuepress-plugin-google-adsense",
-    //   {
-    //     adClient: "ca-pub-4039568972335207", // replace it with your adClient
-    //   },
-    // ],
+    [
+      "vuepress-plugin-google-adsense",
+      {
+        adClient: "ca-pub-4039568972335207", // replace it with your adClient
+      },
+    ],
     [
       "@vuepress/google-analytics",
       {
@@ -53,7 +54,7 @@ module.exports = {
       },
     ],
     ["@vuepress/last-updated"],
-
+    ['@vuepress/register-components'],
     ["sitemap", { hostname: "https://javapark.github.io/" }],
   ],
   // themeConfig: {
