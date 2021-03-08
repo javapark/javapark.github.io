@@ -53,6 +53,7 @@ module.exports = {
         ga: "UA-38514061-2", // UA-00000000-0
       },
     ],
+    ['@vuepress/back-to-top', true],
     ["@vuepress/last-updated"],
     ['@vuepress/register-components'],
     ["sitemap", { hostname: "https://javapark.github.io/" }],

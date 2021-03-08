@@ -7,6 +7,13 @@ module.exports = [
     ],
   },
   {
+    title: "Svelte",
+    children: [
+        { title: "Svelte 따라하기", path: `/svelte/` }
+        ,{ title: "Todo 예제", path: `/svelte/todo` }
+    ],
+  },
+  {
     title: "VS Code",
     children: [
         { title: "VS code 환경설정", path: `/vscode/vscode_config` }
