@@ -103,3 +103,5 @@ svelte/store 를 이용하여 todo 예제를 만들기
 {/if}
 
 ```
+
+<Comment />
