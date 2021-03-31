@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Todo 예제 만들기 | Today I Learned</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script data-ad-client="ca-pub-4039568972335207" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="Javapark">
+    
+    <link rel="preload" href="/assets/css/0.styles.a8ea5a3e.css" as="style"><link rel="preload" href="/assets/js/app.45b8a08b.js" as="script"><link rel="preload" href="/assets/js/2.7b21dba6.js" as="script"><link rel="preload" href="/assets/js/25.c0f36b66.js" as="script"><link rel="preload" href="/assets/js/7.bfd57dab.js" as="script"><link rel="prefetch" href="/assets/js/10.54d6d89b.js"><link rel="prefetch" href="/assets/js/11.ac67ba0d.js"><link rel="prefetch" href="/assets/js/12.c53de9c9.js"><link rel="prefetch" href="/assets/js/13.5e3f220f.js"><link rel="prefetch" href="/assets/js/14.8108fa2a.js"><link rel="prefetch" href="/assets/js/15.12bb3da7.js"><link rel="prefetch" href="/assets/js/16.7c4ab4dc.js"><link rel="prefetch" href="/assets/js/17.205aada0.js"><link rel="prefetch" href="/assets/js/18.9efb7d07.js"><link rel="prefetch" href="/assets/js/19.14cfbbbe.js"><link rel="prefetch" href="/assets/js/20.a0256c8c.js"><link rel="prefetch" href="/assets/js/21.cdfbea0c.js"><link rel="prefetch" href="/assets/js/22.308cd3e6.js"><link rel="prefetch" href="/assets/js/23.9d1b4aaf.js"><link rel="prefetch" href="/assets/js/24.b5048a56.js"><link rel="prefetch" href="/assets/js/26.bf3c24f4.js"><link rel="prefetch" href="/assets/js/27.5230b575.js"><link rel="prefetch" href="/assets/js/28.0994499d.js"><link rel="prefetch" href="/assets/js/29.353d3e2a.js"><link rel="prefetch" href="/assets/js/3.e8ec7033.js"><link rel="prefetch" href="/assets/js/30.bdd14050.js"><link rel="prefetch" href="/assets/js/31.048dc16e.js"><link rel="prefetch" href="/assets/js/4.b42802d3.js"><link rel="prefetch" href="/assets/js/5.697f0969.js"><link rel="prefetch" href="/assets/js/6.e495d5b1.js"><link rel="prefetch" href="/assets/js/8.b5965075.js"><link rel="prefetch" href="/assets/js/9.d98f5153.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a8ea5a3e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://avatars.githubusercontent.com/u/288315?s=400&amp;v=4" alt="Today I Learned" class="logo"> <span class="site-name can-hide">Today I Learned</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link">
+  Tags
+</a></div><div class="nav-item"><a href="https://github.com/javapark/javapark.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Repo
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link">
+  Tags
+</a></div><div class="nav-item"><a href="https://github.com/javapark/javapark.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Repo
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VuePress</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Svelte</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/svelte/" aria-current="page" class="sidebar-link">Svelte 따라하기</a></li><li><a href="/svelte/todo.html" aria-current="page" class="active sidebar-link">Todo 예제</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/svelte/todo.html#app-svelte" class="sidebar-link">App.svelte</a></li><li class="sidebar-sub-header"><a href="/svelte/todo.html#todo-svelte" class="sidebar-link">Todo.svelte</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VS Code</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ETC</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="todo-예제-만들기"><a href="#todo-예제-만들기" class="header-anchor">#</a> Todo 예제 만들기</h1> <p>svelte/store 를 이용하여 todo 예제를 만들기</p> <h2 id="app-svelte"><a href="#app-svelte" class="header-anchor">#</a> App.svelte</h2> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+	<span class="token keyword">import</span> <span class="token punctuation">{</span> writable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'svelte/store'</span>
+	<span class="token keyword">import</span> Todo <span class="token keyword">from</span> <span class="token string">'./Todo.svelte'</span>
+
+	<span class="token keyword">let</span> title <span class="token operator">=</span> <span class="token string">''</span>
+	<span class="token keyword">let</span> todos <span class="token operator">=</span> <span class="token function">writable</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token number">0</span>
+
+	<span class="token keyword">function</span> <span class="token function">createTodo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>title<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			title <span class="token operator">=</span> <span class="token string">''</span>
+			<span class="token keyword">return</span>
+		<span class="token punctuation">}</span>
+		
+		<span class="token comment">// 'crypto-random-string', 'uuid' 등의 외부라이브러리를 통해 id 생성 가능</span>
+		$todos<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+			id<span class="token punctuation">,</span>
+			title
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token comment">// 할당은 통해 반응성 유지</span>
+		$todos <span class="token operator">=</span> $todos
+
+		title <span class="token operator">=</span> <span class="token string">''</span>
+		id <span class="token operator">+=</span> <span class="token number">1</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">// 조건일때 실행하는 방법</span>
+	<span class="token comment">// if ( e.key === 'Enter' ) { createTodo() }</span>
+	<span class="token comment">// e.key === 'Enter' ? createTodo() : undefined</span>
+	<span class="token comment">// e.key === 'Enter' &amp;&amp; createTodo()</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><div class="language-html line-numbers-mode"><pre class="language-html"><code>&lt;input type=&quot;text&quot; 
+			 bind:value={title} 
+			 on:keydown={(e)=&gt;{e.key === 'Enter' &amp;&amp; createTodo()}}
+			 /&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>{createTodo}</span><span class="token punctuation">&gt;</span></span>
+	Create Todo
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+{#each $todos as todo}
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Todo</span> <span class="token attr-name">{todos}</span> <span class="token attr-name">{todo}</span><span class="token punctuation">/&gt;</span></span>
+{/each}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="todo-svelte"><a href="#todo-svelte" class="header-anchor">#</a> Todo.svelte</h2> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+	<span class="token keyword">export</span> <span class="token keyword">let</span> todo
+	<span class="token keyword">export</span> <span class="token keyword">let</span> todos
+	
+	<span class="token keyword">let</span> isEdit <span class="token operator">=</span> <span class="token boolean">false</span>
+	<span class="token keyword">let</span> title <span class="token operator">=</span> <span class="token string">''</span>
+	
+	<span class="token keyword">function</span> <span class="token function">onEdit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		isEdit <span class="token operator">=</span> <span class="token boolean">true</span>
+		title <span class="token operator">=</span> todo<span class="token punctuation">.</span>title
+	<span class="token punctuation">}</span>
+	
+	<span class="token keyword">function</span> <span class="token function">offEdit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		isEdit <span class="token operator">=</span> <span class="token boolean">false</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">updateTodo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		todo<span class="token punctuation">.</span>title <span class="token operator">=</span> title
+		<span class="token function">offEdit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">function</span> <span class="token function">deleteTodo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		$todos <span class="token operator">=</span> $todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span> <span class="token parameter">t</span> <span class="token operator">=&gt;</span> t<span class="token punctuation">.</span>id <span class="token operator">!==</span> todo<span class="token punctuation">.</span>id <span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><div class="language-html line-numbers-mode"><pre class="language-html"><code>{#if isEdit}
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+		&lt;input type=&quot;text&quot; 
+					 bind:value={title}
+					 on:keydown={(e)=&gt;{e.key === 'Enter' &amp;&amp; updateTodo()}}
+					 /&gt;
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>{updateTodo}</span><span class="token punctuation">&gt;</span></span>
+			OK
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>{offEdit}</span><span class="token punctuation">&gt;</span></span>
+			Cancel
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+{:else}
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+		{todo.title}
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>{onEdit}</span><span class="token punctuation">&gt;</span></span>
+			Edit
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>{deleteTodo}</span><span class="token punctuation">&gt;</span></span>
+			Delete
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+{/if}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/31/2021, 11:21:17 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/svelte/" class="prev router-link-active">
+        Svelte 따라하기
+      </a></span> <span class="next"><a href="/vscode/vscode_config.html">
+        VS code 환경설정
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.45b8a08b.js" defer></script><script src="/assets/js/2.7b21dba6.js" defer></script><script src="/assets/js/25.c0f36b66.js" defer></script><script src="/assets/js/7.bfd57dab.js" defer></script>
+  </body>
+</html>

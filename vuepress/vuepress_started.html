@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePress 시작하기 | Today I Learned</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script data-ad-client="ca-pub-4039568972335207" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="Javapark">
+    
+    <link rel="preload" href="/assets/css/0.styles.a8ea5a3e.css" as="style"><link rel="preload" href="/assets/js/app.45b8a08b.js" as="script"><link rel="preload" href="/assets/js/2.7b21dba6.js" as="script"><link rel="preload" href="/assets/js/30.bdd14050.js" as="script"><link rel="preload" href="/assets/js/7.bfd57dab.js" as="script"><link rel="prefetch" href="/assets/js/10.54d6d89b.js"><link rel="prefetch" href="/assets/js/11.ac67ba0d.js"><link rel="prefetch" href="/assets/js/12.c53de9c9.js"><link rel="prefetch" href="/assets/js/13.5e3f220f.js"><link rel="prefetch" href="/assets/js/14.8108fa2a.js"><link rel="prefetch" href="/assets/js/15.12bb3da7.js"><link rel="prefetch" href="/assets/js/16.7c4ab4dc.js"><link rel="prefetch" href="/assets/js/17.205aada0.js"><link rel="prefetch" href="/assets/js/18.9efb7d07.js"><link rel="prefetch" href="/assets/js/19.14cfbbbe.js"><link rel="prefetch" href="/assets/js/20.a0256c8c.js"><link rel="prefetch" href="/assets/js/21.cdfbea0c.js"><link rel="prefetch" href="/assets/js/22.308cd3e6.js"><link rel="prefetch" href="/assets/js/23.9d1b4aaf.js"><link rel="prefetch" href="/assets/js/24.b5048a56.js"><link rel="prefetch" href="/assets/js/25.c0f36b66.js"><link rel="prefetch" href="/assets/js/26.bf3c24f4.js"><link rel="prefetch" href="/assets/js/27.5230b575.js"><link rel="prefetch" href="/assets/js/28.0994499d.js"><link rel="prefetch" href="/assets/js/29.353d3e2a.js"><link rel="prefetch" href="/assets/js/3.e8ec7033.js"><link rel="prefetch" href="/assets/js/31.048dc16e.js"><link rel="prefetch" href="/assets/js/4.b42802d3.js"><link rel="prefetch" href="/assets/js/5.697f0969.js"><link rel="prefetch" href="/assets/js/6.e495d5b1.js"><link rel="prefetch" href="/assets/js/8.b5965075.js"><link rel="prefetch" href="/assets/js/9.d98f5153.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a8ea5a3e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://avatars.githubusercontent.com/u/288315?s=400&amp;v=4" alt="Today I Learned" class="logo"> <span class="site-name can-hide">Today I Learned</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link">
+  Tags
+</a></div><div class="nav-item"><a href="https://github.com/javapark/javapark.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Repo
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link">
+  Tags
+</a></div><div class="nav-item"><a href="https://github.com/javapark/javapark.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Repo
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>VuePress</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress/vuepress_started.html" aria-current="page" class="active sidebar-link">VuePress 시작하기</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#vuepress-는-무엇" class="sidebar-link">Vuepress 는 무엇?</a></li><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#기본-설치-및-빌드" class="sidebar-link">기본 설치 및 빌드</a></li><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#directory-structure" class="sidebar-link">Directory Structure</a></li><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#default-page-routing" class="sidebar-link">Default Page Routing</a></li><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#maekdown-extensions" class="sidebar-link">Maekdown Extensions</a></li><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#deploying" class="sidebar-link">Deploying</a></li><li class="sidebar-sub-header"><a href="/vuepress/vuepress_started.html#ref" class="sidebar-link">Ref</a></li></ul></li><li><a href="/vuepress/vuepress_plugins.html" class="sidebar-link">VuePress Plugins</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Svelte</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VS Code</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ETC</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vuepress-시작하기"><a href="#vuepress-시작하기" class="header-anchor">#</a> VuePress 시작하기</h1> <p>VuePress 를 이용하여 TIL 을 작성하려고 한다. VuePress 를 이용하여 md 파일을 html 로 변환하고 이를 서비스 하려고 한다. 그럼 Vuepress 는 무엇인가?</p> <h2 id="vuepress-는-무엇"><a href="#vuepress-는-무엇" class="header-anchor">#</a> Vuepress 는 무엇?</h2> <ol><li>Vuepress 는 Vue.js 로 개발되어진 정적 사이트 생성기이다</li> <li>기술문서 작성을 위해 최적화된 기본테마를 제공해준다</li> <li>Plugin API를 제공해주어 플러그인을 제작하거나 적용할 수 있다. ( Google Analytics, PWA 를 손쉽게 적용가능함 )</li></ol> <h2 id="기본-설치-및-빌드"><a href="#기본-설치-및-빌드" class="header-anchor">#</a> 기본 설치 및 빌드</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># global install</span>
+$ <span class="token function">yarn</span> global <span class="token function">add</span> vuepress
+
+<span class="token comment"># install as a local dependency</span>
+$ <span class="token function">yarn</span> <span class="token function">add</span> -D vuepress
+
+$ <span class="token function">mkdir</span> docs
+
+<span class="token comment"># 마크다운 파일을 생성한다.</span>
+$ <span class="token builtin class-name">echo</span> <span class="token string">'# Hello VuePress'</span> <span class="token operator">&gt;</span> docs/README.md
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>package.json 에 scripts 추가</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;docs:dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress dev docs&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;docs:build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress build docs&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># Development Mode</span>
+$ <span class="token function">yarn</span> docs:dev
+
+<span class="token comment"># build to static files</span>
+$ <span class="token function">yarn</span> docs:build
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="directory-structure"><a href="#directory-structure" class="header-anchor">#</a> Directory Structure</h2> <p>VuePress 에서 권장되는 구조는 아래와 같다</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>.
+├── docs
+│   ├── .vuepress (Optional)
+│   │   ├── components (Optional)
+│   │   ├── theme (Optional)
+│   │   │   └── Layout.vue
+│   │   ├── public (Optional)
+│   │   ├── styles (Optional)
+│   │   │   ├── index.styl
+│   │   │   └── palette.styl
+│   │   ├── templates (Optional, Danger Zone)
+│   │   │   ├── dev.html
+│   │   │   └── ssr.html
+│   │   ├── config.js (Optional)
+│   │   └── enhanceApp.js (Optional)
+│   │ 
+│   ├── README.md
+│   ├── guide
+│   │   └── README.md
+│   └── config.md
+│ 
+└── package.json
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><div class="custom-block warning"><p class="custom-block-title">Note</p> <p>자세한 사항은 <a href="https://vuepress.vuejs.org/guide/directory-structure.html#default-page-routing" target="_blank" rel="noopener noreferrer">VuePress 공식문서<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 를 참고하길 바란다</p></div> <h2 id="default-page-routing"><a href="#default-page-routing" class="header-anchor">#</a> Default Page Routing</h2> <p>타겟 디렉토리로 <code>docs</code> 를 사용한다. 아래의 모든 '상대경로'는 <code>docs</code> 디렉토리에 상대적이다.
+기본 페이지 라우팅 경로는 다음과 같다</p> <table><thead><tr><th style="text-align:left;">경로</th> <th style="text-align:left;">페이지 라우팅</th></tr></thead> <tbody><tr><td style="text-align:left;"><code>/README.md</code></td> <td style="text-align:left;"><code>/</code></td></tr> <tr><td style="text-align:left;"><code>/guide/README.md</code></td> <td style="text-align:left;"><code>/guide/</code></td></tr> <tr><td style="text-align:left;"><code>/config.md</code></td> <td style="text-align:left;"><code>/config.html</code></td></tr></tbody></table> <h2 id="maekdown-extensions"><a href="#maekdown-extensions" class="header-anchor">#</a> Maekdown Extensions</h2> <h3 id="syntax-highlighting-in-code-blocks"><a href="#syntax-highlighting-in-code-blocks" class="header-anchor">#</a> Syntax Highlighting in Code Blocks</h3> <p>input</p> <pre class="language-md">``` js
+export default {
+  name: 'MyComponent',
+  // ...
+}
+```
+</pre> <p>output</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'MyComponent'</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="line-numbers"><a href="#line-numbers" class="header-anchor">#</a> Line Numbers</h3> <p>You can enable line numbers for each code blocks via config:</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  markdown<span class="token operator">:</span> <span class="token punctuation">{</span>
+    lineNumbers<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="deploying"><a href="#deploying" class="header-anchor">#</a> Deploying</h2> <h3 id="github-pages"><a href="#github-pages" class="header-anchor">#</a> GitHub Pages</h3> <ol><li><p><code>docs/.vuepress/config.js</code> 에 base 설정
+<code>https://github.com/&lt;USERNAME&gt;/&lt;REPO&gt;</code> 의 경우 base 는 &quot;/<REPO>/&quot; 가 됨</REPO></p></li> <li><p>프로젝트 내에 deploy.sh 설정</p></li></ol> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token shebang important">#!/usr/bin/env sh</span>
+
+<span class="token comment"># abort on errors</span>
+<span class="token builtin class-name">set</span> -e
+
+<span class="token comment"># build</span>
+<span class="token function">npm</span> run docs:build
+
+<span class="token comment"># navigate into the build output directory</span>
+<span class="token builtin class-name">cd</span> docs/.vuepress/dist
+
+<span class="token comment"># if you are deploying to a custom domain</span>
+<span class="token comment"># echo 'www.example.com' &gt; CNAME</span>
+
+<span class="token function">git</span> init
+<span class="token function">git</span> <span class="token function">add</span> -A
+<span class="token function">git</span> commit -m <span class="token string">'deploy'</span>
+
+<span class="token comment"># if you are deploying to https://&lt;USERNAME&gt;.github.io</span>
+<span class="token comment"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git master</span>
+
+<span class="token comment"># if you are deploying to https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span>
+<span class="token function">git</span> push -f https://github.com/javapark/javapark.github.io.git master:gh-pages
+
+<span class="token builtin class-name">cd</span> -
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><ol start="3"><li><code>main.yaml</code> 설정</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Vuepress deploy
+      uses: jenkey2011/vuepress-deploy@1.0.1
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BUILD_SCRIPT: yarn &amp;&amp; yarn docs:build
+        TARGET_BRANCH: gh-pages
+        BUILD_DIR: docs/.vuepress/dist
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="netlify"><a href="#netlify" class="header-anchor">#</a> <a href="https://vuepress.vuejs.org/guide/deploy.html#netlify" target="_blank" rel="noopener noreferrer">Netlify<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <ol><li><a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> , setup up a new project from GitHub with the following settings:</li></ol> <ul><li><strong>Build Command:</strong> vuepress build docs or yarn docs:build or npm run docs:build</li> <li><strong>Publish directory:</strong> docs/.vuepress/dist</li></ul> <ol start="2"><li>Hit the deploy button</li></ol> <h2 id="ref"><a href="#ref" class="header-anchor">#</a> Ref</h2> <ul><li><a href="https://limdongjin.github.io/vuejs/vuepress/#table-of-contents" target="_blank" rel="noopener noreferrer">Vuepress 로 기술문서 빠르게 만들어보자<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://vuepress.vuejs.org/" target="_blank" rel="noopener noreferrer">VuePress<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/31/2021, 11:21:17 AM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/vuepress/vuepress_plugins.html">
+        VuePress Plugins
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.45b8a08b.js" defer></script><script src="/assets/js/2.7b21dba6.js" defer></script><script src="/assets/js/30.bdd14050.js" defer></script><script src="/assets/js/7.bfd57dab.js" defer></script>
+  </body>
+</html>

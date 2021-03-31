@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Svelte | Today I Learned</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script data-ad-client="ca-pub-4039568972335207" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="Javapark">
+    
+    <link rel="preload" href="/assets/css/0.styles.a8ea5a3e.css" as="style"><link rel="preload" href="/assets/js/app.45b8a08b.js" as="script"><link rel="preload" href="/assets/js/2.7b21dba6.js" as="script"><link rel="preload" href="/assets/js/24.b5048a56.js" as="script"><link rel="preload" href="/assets/js/7.bfd57dab.js" as="script"><link rel="prefetch" href="/assets/js/10.54d6d89b.js"><link rel="prefetch" href="/assets/js/11.ac67ba0d.js"><link rel="prefetch" href="/assets/js/12.c53de9c9.js"><link rel="prefetch" href="/assets/js/13.5e3f220f.js"><link rel="prefetch" href="/assets/js/14.8108fa2a.js"><link rel="prefetch" href="/assets/js/15.12bb3da7.js"><link rel="prefetch" href="/assets/js/16.7c4ab4dc.js"><link rel="prefetch" href="/assets/js/17.205aada0.js"><link rel="prefetch" href="/assets/js/18.9efb7d07.js"><link rel="prefetch" href="/assets/js/19.14cfbbbe.js"><link rel="prefetch" href="/assets/js/20.a0256c8c.js"><link rel="prefetch" href="/assets/js/21.cdfbea0c.js"><link rel="prefetch" href="/assets/js/22.308cd3e6.js"><link rel="prefetch" href="/assets/js/23.9d1b4aaf.js"><link rel="prefetch" href="/assets/js/25.c0f36b66.js"><link rel="prefetch" href="/assets/js/26.bf3c24f4.js"><link rel="prefetch" href="/assets/js/27.5230b575.js"><link rel="prefetch" href="/assets/js/28.0994499d.js"><link rel="prefetch" href="/assets/js/29.353d3e2a.js"><link rel="prefetch" href="/assets/js/3.e8ec7033.js"><link rel="prefetch" href="/assets/js/30.bdd14050.js"><link rel="prefetch" href="/assets/js/31.048dc16e.js"><link rel="prefetch" href="/assets/js/4.b42802d3.js"><link rel="prefetch" href="/assets/js/5.697f0969.js"><link rel="prefetch" href="/assets/js/6.e495d5b1.js"><link rel="prefetch" href="/assets/js/8.b5965075.js"><link rel="prefetch" href="/assets/js/9.d98f5153.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a8ea5a3e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://avatars.githubusercontent.com/u/288315?s=400&amp;v=4" alt="Today I Learned" class="logo"> <span class="site-name can-hide">Today I Learned</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link">
+  Tags
+</a></div><div class="nav-item"><a href="https://github.com/javapark/javapark.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Repo
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link">
+  Tags
+</a></div><div class="nav-item"><a href="https://github.com/javapark/javapark.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Repo
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VuePress</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Svelte</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/svelte/" aria-current="page" class="active sidebar-link">Svelte 따라하기</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/svelte/#개요" class="sidebar-link">개요</a></li><li class="sidebar-sub-header"><a href="/svelte/#특징-분석" class="sidebar-link">특징 분석</a></li><li class="sidebar-sub-header"><a href="/svelte/#repl-사용법" class="sidebar-link">REPL 사용법</a></li><li class="sidebar-sub-header"><a href="/svelte/#vs-code-에서-svelte-프로젝트-시작하기" class="sidebar-link">VS Code 에서 Svelte 프로젝트 시작하기</a></li><li class="sidebar-sub-header"><a href="/svelte/#선언적-렌더링" class="sidebar-link">선언적 렌더링</a></li><li class="sidebar-sub-header"><a href="/svelte/#조건문과-반복문" class="sidebar-link">조건문과 반복문</a></li><li class="sidebar-sub-header"><a href="/svelte/#이벤트-핸드링" class="sidebar-link">이벤트 핸드링</a></li><li class="sidebar-sub-header"><a href="/svelte/#컴포넌트" class="sidebar-link">컴포넌트</a></li><li class="sidebar-sub-header"><a href="/svelte/#store" class="sidebar-link">Store</a></li><li class="sidebar-sub-header"><a href="/svelte/#ref" class="sidebar-link">Ref</a></li></ul></li><li><a href="/svelte/todo.html" class="sidebar-link">Todo 예제</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VS Code</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ETC</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="svelte"><a href="#svelte" class="header-anchor">#</a> Svelte</h1> <p>다음은 <a href="https://www.inflearn.com/course/%EC%8A%A4%EB%B2%A8%ED%8A%B8-%EC%9E%85%EB%AC%B8-%EA%B0%80%EC%9D%B4%EB%93%9C" target="_blank" rel="noopener noreferrer">스벨트 입문<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 강좌를 들으면서 내용을 정리한 것이다. 다른 UI 프레임워크를 알아보다가 <a href="https://seokjun.kim/time-to-stop-react/" target="_blank" rel="noopener noreferrer">이제 React.js를 버릴 때가 왔다<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 글을 보고 스벨트를 알았고, 무료 강좌까지 2시간을 따라하면서 듣게 되었다. 스벨트에 대해서 긍정적인 생각들을 많이 하게 된 알찬 강의 였다.</p> <h2 id="개요"><a href="#개요" class="header-anchor">#</a> 개요</h2> <blockquote><p>Rich Harris가 제작한 새로운 접근 방식의 Font-End Framework</p></blockquote> <ul><li><a href="https://2020.stateofjs.com/en-US/technologies/front-end-frameworks/" target="_blank" rel="noopener noreferrer">2020 Front-end-Framework<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h2 id="특징-분석"><a href="#특징-분석" class="header-anchor">#</a> 특징 분석</h2> <h3 id="write-less-code"><a href="#write-less-code" class="header-anchor">#</a> Write less code</h3> <ul><li>높은 가독성 유지</li> <li>개발 시간 단축</li> <li>쉬운 리팩토링</li> <li>쉬운 디버깅</li> <li>더 작은 번들 (SPA 최적화)</li> <li>낮은 러닝 커브</li></ul> <h3 id="no-virtual-dom"><a href="#no-virtual-dom" class="header-anchor">#</a> No virtual DOM!</h3> <ul><li>No Diffing : Virtual DOM 을 통해 비교할 대상을 만들고 비교하는 것이 Diffing 이다</li> <li>No Overhead : 가상돔을 생성하고 비교할 필요가 없어서 기회비용(Overhead)이 없어진다</li> <li>빠른 성능(퍼포먼스) : 그로인해 성능도 개선된다</li></ul> <h3 id="truly-reactive-반응성"><a href="#truly-reactive-반응성" class="header-anchor">#</a> Truly reactive ( 반응성 )</h3> <p>반응성이란 애플리케이션 상태(데이터)의 변화가, DOM에 자동으로 반영되는 현상</p> <ul><li>Framework-less VanillaJS</li> <li>Only use <code>devDependencies</code></li> <li>명시적 설계(창의적 작업)</li></ul> <h3 id="단점-2019-4-v3"><a href="#단점-2019-4-v3" class="header-anchor">#</a> 단점 (2019.4 v3)</h3> <ul><li>낮은 성숙도(작은 생태계)</li> <li>CDN 미제공</li> <li>IE 지원 X</li></ul> <h2 id="repl-사용법"><a href="#repl-사용법" class="header-anchor">#</a> REPL 사용법</h2> <p>REPL(read-eval-print loop) 사용자에게 데이터를 입력받고 이를 평가(실행)하고 결과를 반환하는 단순한 상호작용 컴퓨터 프로그래밍 환경</p> <ul><li>svelte 를 이용한 테스트가 가능하고 사이드에서 생성된 프로젝트에서는 rollup 을 이용하여 구성이 되어 있는 것도 특징이다. 첫느낌은 단순하면서도 js 기본기를 알아야 한다는 점에서 괜찮으면서도 아직은 생태계가 작아서 진행 시 어려움이 있을 것 같아 걱정이 되기도 한다</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+let name = 'World';
+&lt;/script&gt;
+&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+&lt;button on:click={()=&gt;{name='Javapark'}}&gt;
+ Change
+&lt;/button&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="vs-code-에서-svelte-프로젝트-시작하기"><a href="#vs-code-에서-svelte-프로젝트-시작하기" class="header-anchor">#</a> VS Code 에서 Svelte 프로젝트 시작하기</h2> <ul><li>node, npm 버전 확인</li> <li>LTS(Long Term Supported)는 장기적으로 안정되고 신뢰도가 높은 지원이 보장되는 버전으로, 유지보수와 보안(서버운영등)에 초점을 맞춰 대부분 사용자에게 추천되는 버전</li> <li>검색 <code>svelte template github</code> (https://github.com/sveltejs/template)</li></ul> <h2 id="선언적-렌더링"><a href="#선언적-렌더링" class="header-anchor">#</a> 선언적 렌더링</h2> <p><code>{}</code> 를 이용한 선언적 랜더링 방식과 단방향을 양방향으로 바꾸기 위해서는 bind 라는 prefix 를 이용하는 방식이 있다</p> <ul><li>ex)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;input type=&quot;text&quot; bind:value={name}/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="조건문과-반복문"><a href="#조건문과-반복문" class="header-anchor">#</a> 조건문과 반복문</h2> <h3 id="조건문"><a href="#조건문" class="header-anchor">#</a> 조건문</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	let name = 'world';
+	let toggle = false;
+	if ( toggle ){
+		
+	} else {
+
+	}
+	// 시작 : `#`, 중간 : `:` 끝 : `/`
+&lt;/script&gt;
+
+&lt;button on:click={() =&gt; {toggle = !toggle}}&gt;
+	Toggle
+&lt;/button&gt; {toggle}
+
+{#if toggle}
+	&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+{:else}
+	&lt;div&gt;No name !&lt;/div&gt;
+{/if}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h3 id="반복문"><a href="#반복문" class="header-anchor">#</a> 반복문</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	let name = 'world';
+	let fruits = ['Apple', 'banana', 'Cherry', 'Orange', 'Mango']
+	
+	function deleteFruit(){
+		console.log(fruits)
+		fruits = fruits.slice(1)
+	}
+&lt;/script&gt;
+
+&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+
+&lt;ul&gt;
+{#each fruits as fruit}
+	&lt;li&gt;{fruit}&lt;/li&gt;
+{/each}
+&lt;/ul&gt;
+
+&lt;button on:click={deleteFruit}&gt;Eat it!&lt;/button&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="이벤트-핸드링"><a href="#이벤트-핸드링" class="header-anchor">#</a> 이벤트 핸드링</h2> <h3 id="sample-1"><a href="#sample-1" class="header-anchor">#</a> Sample 1</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+// 	import {onMount} from 'svelte'
+	let name = 'world';
+	let isRed = false
+// 	onMount(()=&gt;{
+// 		const box = document.querySelector('.box')
+// 		box.addEventListener('click', ()=&gt;{
+// 			isRed = !isRed
+// 		})
+// 	})
+	
+	function enter(){
+		name='enter'
+	}
+	
+	function leave(){
+		name='leave'
+	}
+
+	
+&lt;/script&gt;
+
+&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+&lt;div class=&quot;box&quot; style=&quot;background-color: {isRed ?'red':'orange'}&quot; on:click={()=&gt;{isRed=!isRed}}  on:mouseenter={()=&gt;{name='enter'}} 
+on:mouseleave={()=&gt;{name='leave'}}
+&gt;
+	Box!
+&lt;/div&gt;
+
+&lt;style&gt;
+	.box{
+		width: 300px;
+		height: 150px;
+		background-color:orange;
+	}
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h3 id="sample-2"><a href="#sample-2" class="header-anchor">#</a> Sample 2</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	let text = ''
+&lt;/script&gt;
+
+&lt;h1&gt;
+	{text}
+&lt;/h1&gt;
+
+&lt;input type=&quot;text&quot; on:input={(e)=&gt;{text=e.target.value}}
+value={text}
+/&gt;
+&lt;input type=&quot;text&quot;
+			 bind:value={text} /&gt;
+&lt;button on:click={()=&gt;{ text = 'Javapark' } }&gt;
+	Click
+&lt;/button&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="컴포넌트"><a href="#컴포넌트" class="header-anchor">#</a> 컴포넌트</h2> <h3 id="sample-1-2"><a href="#sample-1-2" class="header-anchor">#</a> sample 1</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+let fruits = ['Apple', 'Banana', 'Cherry','Orange', 'Mango']
+&lt;/script&gt;
+
+&lt;h2&gt;
+	Fruits
+&lt;/h2&gt;
+
+&lt;ul&gt;
+	{#each fruits as fruit}
+	&lt;li&gt;{fruit}&lt;/li&gt;
+	{/each}
+&lt;/ul&gt;
+
+&lt;h2&gt;
+	Fruits reverse
+&lt;/h2&gt;
+
+&lt;ul&gt;
+	&lt;!-- 전개연산자
+	...['Apple', 'Banana', 'Cherry','Orange', 'Mango'] 
+'Apple', 'Banana', 'Cherry','Orange', 'Mango'
+['Apple', 'Banana', 'Cherry','Orange', 'Mango']
+--&gt;
+	{#each [...fruits].reverse() as fruit}
+	&lt;li&gt;{fruit}&lt;/li&gt;
+	{/each}
+&lt;/ul&gt;
+
+&lt;h2&gt;
+	Fruits slice - 2
+&lt;/h2&gt;
+
+&lt;ul&gt;
+	{#each fruits.slice(-2) as fruit}
+	&lt;li&gt;{fruit}&lt;/li&gt;
+	{/each}
+&lt;/ul&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><h3 id="sample2"><a href="#sample2" class="header-anchor">#</a> sample2</h3> <div class="language-App.svelte line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	import Fruits from './Fruits.svelte'
+	
+	let fruits = ['Apple', 'Banana', 'Cherry','Orange', 'Mango']
+&lt;/script&gt;
+
+&lt;Fruits {fruits}/&gt;
+&lt;Fruits {fruits} reverse/&gt;
+&lt;Fruits {fruits} slice=&quot;-2&quot;/&gt;
+&lt;Fruits {fruits} slice=&quot;0, 3&quot;/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><div class="language-Fruits.svelte line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	// Props
+	export let fruits
+	export let reverse
+	export let slice
+	
+	let computedFruits = []
+	let name = ''
+	
+	if(reverse){
+		computedFruits = [...fruits].reverse()
+		name = 'reverse'
+	}else if(slice){
+		// slice =&gt; '-2', '0, 3'
+		// slice.split(',') =&gt; ['-2'], ['0' , '3']
+		// ['-2'] =&gt; '-2'
+		// ['0', '3'] =&gt; '0' , '3'
+		computedFruits = fruits.slice(...slice.split(','))
+		// name = 'slice ' + slice
+		name = `sclice ${slice}`
+	}else{
+		computedFruits = fruits
+	}
+&lt;/script&gt;
+
+&lt;h2&gt;
+	Fruits {name}
+&lt;/h2&gt;
+
+&lt;ul&gt;
+	{#each computedFruits as fruit}
+	&lt;li&gt;{fruit}&lt;/li&gt;
+	{/each}
+&lt;/ul&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h2 id="store"><a href="#store" class="header-anchor">#</a> Store</h2> <p>컴포넌트 외부에 데이터를 보내고 받는 방식. 자식의 자식 컴포넌트에게 전송하거나 다른 컴포넌트로 전송할때 사용</p> <h3 id="sample-1-3"><a href="#sample-1-3" class="header-anchor">#</a> Sample 1</h3> <div class="language-App.svelte line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	import { storeName } from './store.js'
+	import Parent from './Parent.svelte'
+	
+	let name = 'world';
+	$storeName = name
+&lt;/script&gt;
+
+&lt;!-- 간단하게 $ 표시를 사용하는 것을 Auto-subscription(자동구독) 이라 함 --&gt;
+&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+&lt;Parent/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="language-Parent.svelte line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	import Child from './Child.svelte'
+&lt;/script&gt;
+
+&lt;div&gt;
+	Parent
+&lt;/div&gt;
+&lt;Child/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><div class="language-Child.svelte line-numbers-mode"><pre class="language-text"><code>&lt;script&gt;
+	import { storeName } from './store.js'
+&lt;/script&gt;
+&lt;div&gt;
+	Child {$storeName}
+&lt;/div&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><div class="language-store.js line-numbers-mode"><pre class="language-text"><code>import { writable } from 'svelte/store'
+
+// 쓰기 가능한 형태로 외부에 노출하는 것
+export let storeName = writable('Javapark')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="주의-사항"><a href="#주의-사항" class="header-anchor">#</a> 주의 사항</h4> <ul><li>$ 는 svelte 에서 사용하는 예약어. 즉 store 에 사용하기 때문에 $로 시작하지 않게 해야 한다</li> <li>svelte 는 스토어를 내장하고 있어 별도로 추가할 필요가 없다</li></ul> <h2 id="ref"><a href="#ref" class="header-anchor">#</a> Ref</h2> <ul><li><a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.inflearn.com/course/%EC%8A%A4%EB%B2%A8%ED%8A%B8-%EC%9E%85%EB%AC%B8-%EA%B0%80%EC%9D%B4%EB%93%9C" target="_blank" rel="noopener noreferrer">스벨트 입문<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/31/2021, 11:21:17 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepress/vuepress_plugins.html" class="prev">
+        VuePress Plugins
+      </a></span> <span class="next"><a href="/svelte/todo.html">
+        Todo 예제
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.45b8a08b.js" defer></script><script src="/assets/js/2.7b21dba6.js" defer></script><script src="/assets/js/24.b5048a56.js" defer></script><script src="/assets/js/7.bfd57dab.js" defer></script>
+  </body>
+</html>
