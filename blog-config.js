@@ -1,17 +1,17 @@
 module.exports = {
-  title: "hoodie",
-  description: "Hello :) I'm Hudi who developed gatsby-starter-hoodie theme.",
-  author: "Hudi",
-  siteUrl: "https://devhudi.github.io/gatsby-starter-hoodie/",
+  title: "JavaPark",
+  description: "Hello :) This is my blog",
+  author: "JavaPark",
+  siteUrl: "https://javapark.github.io/",
   links: {
-    github: "https://github.com/devHudi",
+    github: "https://github.com/javapark",
     linkedIn: "https://linkedin.com",
     facebook: "https://www.facebook.com",
     instagram: "https://www.instagram.com",
-    email: "mailto:devhudi@gmail.com",
+    email: "mailto:javaparknet@gmail.com",
   },
   utterances: {
-    repo: "devHudi/gatsby-starter-hoodie",
+    repo: "javapark/javapark.github.io",
     type: "pathname",
   },
 }
