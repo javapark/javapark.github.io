@@ -1,25 +1,26 @@
-name: Build and Deploy
 on:
   push:
-    branches: main
+    branches:
+      - gh-pages
+name: build gatsby
 jobs:
-  build-and-deploy:
-    name: Build and deploy Gatsby site
+  build_gatsby:
+    name: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v1
 
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '13.x'
+      - name: yarn install
+        run: yarn install
 
-      - name: Install Project Dependencies
-        run: npm ci
-      - name: Install Gatsby CLI
-        run: npm install -g gatsby-cli@2.12.34
-        
-      - name: Build
-        run: gatsby build
-      
+      - name: gatsby build
+        env:
+          GH_API_KEY: ${{ secrets.T_GITHUB_API_KEY }}
+        run: yarn build
+
+      - name: deploy
+        uses: maxheld83/ghpages@v0.2.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.T_GITHUB_API_KEY }}
+          BUILD_DIR: 'public/'
