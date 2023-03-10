@@ -1,6 +1,6 @@
 module.exports = {
   title: "JavaPark",
-  description: "Hello :) This is my blog",
+  description: "Welcome to Javapark blog!!",
   author: "JavaPark",
   siteUrl: "https://javapark.github.io/",
   links: {
