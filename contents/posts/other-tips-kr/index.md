@@ -4,7 +4,6 @@ description:
 date: 2021-04-04
 update: 2021-04-04
 tags:
-  - hoodie
   - other-tips
 series: "gatsby-starter-hoodie 로 블로그 시작하기"
 ---
