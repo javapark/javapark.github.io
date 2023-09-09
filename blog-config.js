@@ -14,4 +14,5 @@ module.exports = {
     repo: "javapark/javapark.github.io",
     type: "pathname",
   },
+  gtag: "G-ZMQ7NQNTEM", // G-339F6827QY
 }
