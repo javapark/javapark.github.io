@@ -5,7 +5,6 @@ date: 2022-10-26
 update: 2022-10-26
 tags:
   - vuepress
-series: "VuePress 로 블로그 시작하기"
 ---
 
 # VuePress 시작하기
