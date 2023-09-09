@@ -31,3 +31,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.T_GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
+        with:
+          email: javaparknet@gmail.com
