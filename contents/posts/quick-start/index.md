@@ -5,7 +5,6 @@ date: 2021-05-02
 update: 2021-05-02
 tags:
   - quick-start
-series: "Getting started your blog with gatsby-starter-hoodie"
 ---
 
 Getting started your blog with gatsby-starter-hoodie by following steps below. It's very easy 😉.
