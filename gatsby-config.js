@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title,
     description,
-    siteUrl = siteUrl,
+    siteUrl,
   },
   plugins: [
     `gatsby-plugin-catch-links`,
