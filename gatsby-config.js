@@ -6,7 +6,6 @@ module.exports = {
   siteMetadata: {
     title,
     description,
-    author,
     siteUrl,
   },
   plugins: [
