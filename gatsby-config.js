@@ -1,8 +1,13 @@
 const blogConfig = require("./blog-config")
+const { title, description, author, siteUrl } = blogConfig
 
 module.exports = {
   pathPrefix: "/",
-  siteMetadata: blogConfig,
+  siteMetadata: {
+    title,
+    description,
+    siteUrl = siteUrl,
+  },
   plugins: [
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-robots-txt`,
