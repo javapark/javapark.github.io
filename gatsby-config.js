@@ -9,6 +9,12 @@ module.exports = {
     siteUrl:siteUrl.toString(),
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-4039568972335207`
+      },
+    },
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-robots-txt`,
     {
