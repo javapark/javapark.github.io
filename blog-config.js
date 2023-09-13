@@ -2,7 +2,7 @@ module.exports = {
   title: "JavaPark",
   description: "Welcome to Javapark blog!!",
   author: "JavaPark",
-  siteUrl: 'https://javapark.github.io',
+  siteUrl: `https://javapark.github.io`,
   links: {
     github: "https://github.com/javapark",
     linkedIn: "https://linkedin.com",
