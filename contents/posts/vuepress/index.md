@@ -1,6 +1,6 @@
 ---
 title: "🎇 1. VuePress 시작하기"
-description: "VuePress 로 블로그 시작하기"
+description: "VuePress 로 블로그 시작하기 1"
 date: 2022-10-26
 update: 2022-10-26
 tags:
