@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title,
     description,
-    siteUrl:`http://javapark.github.io`,
+    siteUrl
   },
   plugins: [
     `gatsby-plugin-catch-links`,
