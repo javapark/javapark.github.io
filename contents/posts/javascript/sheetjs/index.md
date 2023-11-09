@@ -29,7 +29,6 @@ SheetJS를 사용하려면 스크립트 태그를 사용하거나 npm 또는 yar
 
 ```javascript
 document.getElementById('file-input').addEventListener('change', handleFile, false);
-
 function handleFile(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
