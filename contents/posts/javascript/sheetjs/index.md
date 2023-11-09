@@ -26,6 +26,7 @@ SheetJS를 사용하려면 스크립트 태그를 사용하거나 npm 또는 yar
 ```
 
 3. 파일 업로드를 처리하고 Excel 데이터를 읽는 JavaScript 코드를 추가합니다:
+
 ```javascript
 document.getElementById('file-input').addEventListener('change', handleFile, false);
 
