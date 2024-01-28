@@ -1,5 +1,5 @@
 ---
-title: "파이썬 프로젝트 관리의 혁식: `pipenv` 사용가이드"
+title: "파이썬 프로젝트 관리의 혁신: pipenv 사용가이드"
 description: "pipenv 잘 활용하기"
 date: 2024-01-28
 update: 2024-01-28
