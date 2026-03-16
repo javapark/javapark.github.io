@@ -18,16 +18,14 @@ Next.js에서 미들웨어를 사용하려면 next.config.js 파일을 생성하
 
 2. 미들웨어 함수 작성: 미들웨어 함수를 작성합니다. 미들웨어 함수는 요청(request), 응답(response), 그리고 next() 함수를 인자로 받습니다. 예를 들어, 간단한 로깅 미들웨어를 작성해보겠습니다.
 
-
 ```javascript
 // middleware/logger.js
 
 export default function logger(req, res, next) {
-  console.log(`Request received for: ${req.url}`);
-  next(); // 다음 미들웨어나 핸들러로 요청을 전달
+  console.log(`Request received for: ${req.url}`)
+  next() // 다음 미들웨어나 핸들러로 요청을 전달
 }
 ```
-
 
 3. `next.config.js`에서 미들웨어 설정: `next.config.js`` 파일에서 미들웨어를 설정합니다. 미들웨어를 적용할 페이지나 API 경로를 지정할 수 있습니다.
 
@@ -38,34 +36,34 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: '/api-handler/:path*',
+        source: "/api/:path*",
+        destination: "/api-handler/:path*",
       },
-    ];
+    ]
   },
   async redirects() {
     return [
       {
-        source: '/old-route',
-        destination: '/new-route',
+        source: "/old-route",
+        destination: "/new-route",
         permanent: true,
       },
-    ];
+    ]
   },
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: securityHeaders,
       },
-    ];
+    ]
   },
   async middleware() {
     return [
-      '~/middleware/logger.js', // 미들웨어 파일의 상대 경로나 모듈 경로를 지정
-    ];
+      "~/middleware/logger.js", // 미들웨어 파일의 상대 경로나 모듈 경로를 지정
+    ]
   },
-};
+}
 ```
 
 위 예제에서는 logger.js 미들웨어를 설정에 추가하였습니다. 또한, rewrites, redirects, headers 섹션을 사용하여 리라이트, 리다이렉트, 헤더를 조작하는 미들웨어를 설정할 수도 있습니다.

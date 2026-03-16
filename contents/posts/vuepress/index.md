@@ -8,16 +8,18 @@ tags:
 ---
 
 # VuePress 시작하기
+
 VuePress 를 이용하여 TIL 을 작성하려고 한다. VuePress 를 이용하여 md 파일을 html 로 변환하고 이를 서비스 하려고 한다. 그럼 Vuepress 는 무엇인가?
 
 ## Vuepress 는 무엇?
+
 1. Vuepress 는 Vue.js 로 개발되어진 정적 사이트 생성기이다
 2. 기술문서 작성을 위해 최적화된 기본테마를 제공해준다
 3. Plugin API를 제공해주어 플러그인을 제작하거나 적용할 수 있다. ( Google Analytics, PWA 를 손쉽게 적용가능함 )
 
-
 ## 기본 설치 및 빌드
-``` sh
+
+```sh
 # global install
 $ yarn global add vuepress
 
@@ -31,7 +33,8 @@ $ echo '# Hello VuePress' > docs/README.md
 ```
 
 package.json 에 scripts 추가
-``` js
+
+```js
 {
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -40,7 +43,7 @@ package.json 에 scripts 추가
 }
 ```
 
-``` sh
+```sh
 # Development Mode
 $ yarn docs:dev
 
@@ -49,7 +52,9 @@ $ yarn docs:build
 ```
 
 ## Directory Structure
+
 VuePress 에서 권장되는 구조는 아래와 같다
+
 ```
 .
 ├── docs
@@ -66,21 +71,22 @@ VuePress 에서 권장되는 구조는 아래와 같다
 │   │   │   └── ssr.html
 │   │   ├── config.js (Optional)
 │   │   └── enhanceApp.js (Optional)
-│   │ 
+│   │
 │   ├── README.md
 │   ├── guide
 │   │   └── README.md
 │   └── config.md
-│ 
+│
 └── package.json
 ```
 
 :::warning Note
 자세한 사항은 [VuePress 공식문서](https://vuepress.vuejs.org/guide/directory-structure.html#default-page-routing) 를 참고하길 바란다
-:::   
+:::
 
 ## Default Page Routing
-타겟 디렉토리로 `docs` 를 사용한다. 아래의 모든 '상대경로'는 `docs` 디렉토리에 상대적이다. 
+
+타겟 디렉토리로 `docs` 를 사용한다. 아래의 모든 '상대경로'는 `docs` 디렉토리에 상대적이다.
 기본 페이지 라우팅 경로는 다음과 같다
 |경로|페이지 라우팅|
 | :-- | :-- |
@@ -88,10 +94,10 @@ VuePress 에서 권장되는 구조는 아래와 같다
 |`/guide/README.md`|`/guide/`|
 |`/config.md`|`/config.html`|
 
-
 ## Maekdown Extensions
 
 ### Syntax Highlighting in Code Blocks
+
 input
 
 <pre class="language-md">
@@ -104,30 +110,36 @@ export default {
 </pre>
 
 output
-``` js
+
+```js
 export default {
-  name: 'MyComponent',
+  name: "MyComponent",
   // ...
 }
 ```
 
 ### Line Numbers
+
 You can enable line numbers for each code blocks via config:
-``` js
+
+```js
 module.exports = {
   markdown: {
-    lineNumbers: true
-  }
+    lineNumbers: true,
+  },
 }
 ```
 
 ## Deploying
+
 ### GitHub Pages
+
 1. `docs/.vuepress/config.js` 에 base 설정
-`https://github.com/<USERNAME>/<REPO>` 의 경우 base 는 "/<REPO>/" 가 됨
+   `https://github.com/<USERNAME>/<REPO>` 의 경우 base 는 "/<REPO>/" 가 됨
 
 2. 프로젝트 내에 deploy.sh 설정
-``` sh
+
+```sh
 #!/usr/bin/env sh
 
 # abort on errors
@@ -156,6 +168,7 @@ cd -
 ```
 
 3. `main.yaml` 설정
+
 ```
 name: Build and Deploy
 on: [push]
@@ -176,12 +189,16 @@ jobs:
 ```
 
 ### [Netlify](https://vuepress.vuejs.org/guide/deploy.html#netlify)
+
 1. [Netlify](https://www.netlify.com/) , setup up a new project from GitHub with the following settings:
+
 - **Build Command:** vuepress build docs or yarn docs:build or npm run docs:build
 - **Publish directory:** docs/.vuepress/dist
+
 2. Hit the deploy button
 
 ## Ref
+
 - [Vuepress 로 기술문서 빠르게 만들어보자](https://limdongjin.github.io/vuejs/vuepress/#table-of-contents)
 - [VuePress](https://vuepress.vuejs.org/)
 

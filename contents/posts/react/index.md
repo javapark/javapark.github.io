@@ -11,7 +11,7 @@ tags:
 
 # 개요
 
-SSR 에서 서버에서 공통 로그를 남기려고 하는데 어떻게 시작해야 하는지 Chat GPT 에게 물어보았다. 
+SSR 에서 서버에서 공통 로그를 남기려고 하는데 어떻게 시작해야 하는지 Chat GPT 에게 물어보았다.
 
 # 1. Next.js 를 이용한 React Application 샘플
 
@@ -122,7 +122,6 @@ export default Home;
 
 이제 **`http://localhost:3000`**에서 클릭 가능한 링크와 버튼이 있으며, 클릭하면 **`http://localhost:3000/about`** 페이지로 이동합니다.
 
-
 # 3. 요청 마다 로그를 남기려면?
 
 Next.js에서 각 요청마다 로그를 남기려면 미들웨어 함수를 사용할 수 있습니다. 미들웨어 함수는 요청과 응답에 대한 핸들러 함수로, 이를 사용하여 로그를 남기고 다음 미들웨어로 요청을 전달할 수 있습니다.
@@ -185,20 +184,20 @@ node server.js
 ```yaml
 [2023-03-08T08:03:00.827Z] GET /_next/static/chunks/webpack.js?ts=1678262580782
 [2023-03-08T08:03:00.831Z] GET /_next/static/chunks/main.js?ts=1678262580782
-[2023-03-08T08:03:00.834Z] GET /_next/static/chunks/react-refresh.js?ts=1678262580782       
+[2023-03-08T08:03:00.834Z] GET /_next/static/chunks/react-refresh.js?ts=1678262580782
 [2023-03-08T08:03:00.837Z] GET /_next/static/chunks/pages/_app.js?ts=1678262580782
 [2023-03-08T08:03:00.841Z] GET /_next/static/chunks/pages/index.js?ts=1678262580782
-[2023-03-08T08:03:00.842Z] GET /_next/static/development/_buildManifest.js?ts=1678262580782 
+[2023-03-08T08:03:00.842Z] GET /_next/static/development/_buildManifest.js?ts=1678262580782
 [2023-03-08T08:03:00.848Z] GET /_next/static/development/_ssgManifest.js?ts=1678262580782
 [2023-03-08T08:03:01.055Z] GET /_next/static/development/_devMiddlewareManifest.json
 [2023-03-08T08:03:03.658Z] GET /
 [2023-03-08T08:03:03.682Z] GET /_next/static/chunks/webpack.js?ts=1678262583664
 [2023-03-08T08:03:03.683Z] GET /_next/static/chunks/main.js?ts=1678262583664
-[2023-03-08T08:03:03.684Z] GET /_next/static/chunks/react-refresh.js?ts=1678262583664       
+[2023-03-08T08:03:03.684Z] GET /_next/static/chunks/react-refresh.js?ts=1678262583664
 [2023-03-08T08:03:03.688Z] GET /_next/static/chunks/pages/_app.js?ts=1678262583664
 [2023-03-08T08:03:03.689Z] GET /_next/static/chunks/pages/index.js?ts=1678262583664
-[2023-03-08T08:03:03.690Z] GET /_next/static/development/_buildManifest.js?ts=1678262583664 
-[2023-03-08T08:03:03.693Z] GET /_next/static/development/_ssgManifest.js?ts=1678262583664   
+[2023-03-08T08:03:03.690Z] GET /_next/static/development/_buildManifest.js?ts=1678262583664
+[2023-03-08T08:03:03.693Z] GET /_next/static/development/_ssgManifest.js?ts=1678262583664
 [2023-03-08T08:03:03.885Z] GET /_next/static/development/_devMiddlewareManifest.json
 [2023-03-08T08:03:05.912Z] GET /_next/static/development/_devPagesManifest.json
 [2023-03-08T08:03:05.920Z] GET /_next/static/chunks/pages/about.js

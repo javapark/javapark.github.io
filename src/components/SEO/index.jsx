@@ -19,7 +19,9 @@ const SEO = ({ title, description, url }) => {
       <script>
         {`window.dataLayer = window.dataLayer || []; function gtag()
         {dataLayer.push(arguments)}
-        gtag('js', new Date()); gtag('config', '`+ gtag + `');`}
+        gtag('js', new Date()); gtag('config', '` +
+          gtag +
+          `');`}
       </script>
     </Helmet>
   )

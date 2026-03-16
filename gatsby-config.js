@@ -6,13 +6,13 @@ module.exports = {
   siteMetadata: {
     title,
     description,
-    siteUrl:siteUrl.toString(),
+    siteUrl: siteUrl.toString(),
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-adsense`,
       options: {
-        publisherId: `ca-pub-4039568972335207`
+        publisherId: `ca-pub-4039568972335207`,
       },
     },
     `gatsby-plugin-catch-links`,
