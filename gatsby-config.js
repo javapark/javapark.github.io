@@ -1,5 +1,5 @@
 const blogConfig = require("./blog-config")
-const { title, description, author, siteUrl } = blogConfig
+const { title, description, siteUrl } = blogConfig
 
 module.exports = {
   pathPrefix: "/",
