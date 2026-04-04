@@ -33,7 +33,7 @@ const Profile = styled.div`
   width: 128px;
   height: 128px;
   border-radius: 999px;
-  background-image: url(${profileImageRoot}/profile.jfif);
+  background-image: url(${profileImageRoot}/channels4_profile.jpg);
   background-size: cover;
   background-position: center;
 `
