@@ -182,6 +182,40 @@ const Comment = () => {
   )
 }
 
+const CoupangAd = styled.div`
+  margin: 32px 0;
+  text-align: center;
+
+  & > p {
+    margin-top: 8px;
+    font-size: 11px;
+    color: ${props => props.theme.colors.tertiaryText};
+  }
+`
+
+const CoupangBanner = () => {
+  const iframeSrc = `
+    <!DOCTYPE html>
+    <html><head><meta charset="utf-8"><style>body{margin:0;overflow:hidden;}</style></head>
+    <body>
+      <script src="https://ads-partners.coupang.com/g.js"></script>
+      <script>new PartnersCoupang.G({"id":976620,"template":"carousel","trackingCode":"AF8079845","width":"100%","height":"140","tsource":""});</script>
+    </body></html>
+  `
+
+  return (
+    <CoupangAd>
+      <iframe
+        srcDoc={iframeSrc}
+        style={{ width: "100%", height: "160px", border: "none", overflow: "hidden" }}
+        scrolling="no"
+        title="coupang-ad"
+      />
+      <p>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    </CoupangAd>
+  )
+}
+
 const Footer = ({ previous, next }) => {
   return (
     <>
@@ -208,4 +242,5 @@ const Footer = ({ previous, next }) => {
   )
 }
 
+export { CoupangBanner }
 export default Footer

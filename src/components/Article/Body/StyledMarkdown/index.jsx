@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const StyledMarkdown = styled.div`
   & {
-    font-size: 17.6px;
+    font-size: 16px;
     color: ${props => props.theme.colors.text};
     line-height: 1.7;
     overflow: hidden;
@@ -46,12 +46,16 @@ const StyledMarkdown = styled.div`
     margin-top: 64px;
     margin-bottom: 24px;
     font-size: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid ${props => props.theme.colors.border};
   }
 
   & h3 {
     margin-top: 48px;
     margin-bottom: 24px;
     font-size: 22.4px;
+    padding-left: 12px;
+    border-left: 4px solid #0ea5e9;
   }
 
   & h4 {
@@ -77,9 +81,9 @@ const StyledMarkdown = styled.div`
   }
 
   & blockquote {
-    padding: 18px 24px;
-    border-left: 4px solid ${props => props.theme.colors.blockQuoteBorder};
-    background-color: ${props => props.theme.colors.blockQuoteBackground};
+    padding: 16px 24px;
+    border-left: 4px solid #0ea5e9;
+    background-color: transparent;
 
     & *:last-child {
       margin-bottom: 0;
@@ -92,6 +96,7 @@ const StyledMarkdown = styled.div`
 
   & table {
     border-collapse: collapse;
+    width: 100%;
   }
 
   & th {
@@ -127,6 +132,51 @@ const StyledMarkdown = styled.div`
 
   pre[class*="language-"] {
     background-color: #1e1e1e;
+    position: relative;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 0 0 24px 0;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  pre[class*="language-"]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    right: 12px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-family: inherit;
+    color: #64748b;
+    background: rgba(148, 163, 184, 0.08);
+    border-radius: 0 0 6px 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  & .copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-family: inherit;
+    color: #94a3b8;
+    background: rgba(148, 163, 184, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+  }
+
+  & pre:hover .copy-button {
+    opacity: 1;
+  }
+
+  & .copy-button:hover {
+    background: rgba(148, 163, 184, 0.25);
+    color: #e2e8f0;
   }
 
   & *:not(pre) > code.language-text {

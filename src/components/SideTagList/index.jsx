@@ -15,7 +15,7 @@ const Wrapper = styled.aside`
   height: 100px;
   font-size: 16px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `

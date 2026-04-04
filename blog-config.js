@@ -1,13 +1,10 @@
 module.exports = {
   title: "JavaPark",
-  description: "Welcome to Javapark blog!!",
+  description: "AI 시대의 개발자 도구, 실전 경험을 공유합니다",
   author: "JavaPark",
   siteUrl: "https://javapark.github.io",
   links: {
     github: "https://github.com/javapark",
-    linkedIn: "https://linkedin.com",
-    facebook: "https://www.facebook.com",
-    instagram: "https://www.instagram.com",
     email: "mailto:javaparknet@gmail.com",
   },
   utterances: {

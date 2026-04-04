@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 
 import Layout from "components/Layout"
 import Article from "components/Article"
+import { CoupangBanner } from "components/Article/Footer"
 
 import { siteUrl } from "../../blog-config"
 
@@ -47,6 +48,7 @@ const Post = ({ data }) => {
           <Article.Series header={series} series={filteredSeries} />
         )}
         <Article.Body html={post.html} />
+        <CoupangBanner />
         <Article.Footer previous={previous} next={next} />
       </Article>
     </Layout>

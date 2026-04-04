@@ -12,7 +12,7 @@ const TagLink = styled.div`
   padding: 9.6px 11.2px;
   margin-right: 8px;
   margin-bottom: 8px;
-  border-radius: 50px;
+  border-radius: 8px;
   background-color: ${props =>
     props.selected
       ? props.theme.colors.selectedTagBackground
