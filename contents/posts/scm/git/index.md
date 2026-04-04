@@ -5,7 +5,7 @@ date: 2023-11-22
 update: 2023-11-22
 tags:
   - git
-  - SCM
+  - scm
 ---
 
 
