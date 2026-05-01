@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --font-pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+html {
+  font-family: var(--font-pretendard);
+  background-color: #0a0a0f;
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.18), transparent 55%),
+    radial-gradient(circle at 85% 100%, rgba(34, 211, 238, 0.12), transparent 55%),
+    #0a0a0f;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

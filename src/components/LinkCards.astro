@@ -1,0 +1,70 @@
+---
+interface LinkItem {
+  title: string;
+  url: string;
+  description: string;
+  accent: string;
+}
+
+const links: LinkItem[] = [
+  {
+    title: '개발 블로그',
+    url: 'https://blog.javapark.kr',
+    description: 'AI · Claude · 풀스택 개발 기록',
+    accent: 'from-emerald-500/25 to-cyan-500/25',
+  },
+  {
+    title: 'javapark.kr',
+    url: 'https://javapark.kr',
+    description: '메인 블로그 (티스토리)',
+    accent: 'from-orange-500/25 to-rose-500/25',
+  },
+  {
+    title: '1분 게임',
+    url: 'https://game.javapark.kr',
+    description: '한 판에 1분, 짧은 웹 게임',
+    accent: 'from-fuchsia-500/25 to-violet-500/25',
+  },
+  {
+    title: 'YouTube',
+    url: 'https://www.youtube.com/@%EC%9E%90%EB%B0%94%ED%8C%8C%ED%81%AC',
+    description: '영상으로 보는 자바파커',
+    accent: 'from-red-500/25 to-rose-500/25',
+  },
+  {
+    title: 'GitHub',
+    url: 'https://github.com/javapark',
+    description: '코드 · 사이드 프로젝트',
+    accent: 'from-slate-400/20 to-zinc-400/20',
+  },
+];
+---
+
+<section class="px-6 py-10 max-w-5xl mx-auto">
+  <h2 class="sr-only">링크</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {
+      links.map((l) => (
+        <a
+          href={l.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 transition duration-200 hover:border-white/25 hover:-translate-y-0.5"
+        >
+          <div
+            class={`absolute inset-0 bg-gradient-to-br ${l.accent} opacity-0 group-hover:opacity-70 transition duration-300`}
+          />
+          <div class="relative flex items-start justify-between gap-4">
+            <div>
+              <div class="text-lg font-semibold text-white mb-1">{l.title}</div>
+              <div class="text-sm text-gray-400 leading-relaxed">{l.description}</div>
+            </div>
+            <span class="text-gray-500 group-hover:text-white group-hover:translate-x-1 transition duration-200">
+              →
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
