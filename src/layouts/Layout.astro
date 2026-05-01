@@ -4,12 +4,49 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title = '자바파커 — JAVAPARK',
-  description = 'AI · 개발 · 게임을 만드는 자바파커의 포털',
+  description = 'AI · 개발 · 게임을 만드는 자바파커의 포털. 개발 블로그, 1분 게임, 사이드 프로젝트 모음.',
+  ogImage = '/og-image.png',
 } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://javapark.github.io';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteUrl).toString();
+const ogImageUrl = new URL(ogImage, Astro.site ?? siteUrl).toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
+      name: 'JAVAPARK',
+      alternateName: '자바파커',
+      description,
+      inLanguage: 'ko-KR',
+      publisher: { '@id': `${siteUrl}/#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: '자바파커',
+      alternateName: 'JAVAPARK',
+      url: `${siteUrl}/`,
+      email: 'mailto:javaparknet@gmail.com',
+      sameAs: [
+        'https://blog.javapark.kr',
+        'https://javapark.kr',
+        'https://game.javapark.kr',
+        'https://www.youtube.com/@%EC%9E%90%EB%B0%94%ED%8C%8C%ED%81%AC',
+        'https://github.com/javapark',
+      ],
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -17,20 +54,47 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="자바파커, JAVAPARK, AI, Claude, 개발 블로그, 1분 게임, 자바파커 블로그, 자바파커 게임, javapark.kr, blog.javapark.kr, game.javapark.kr"
+    />
+    <meta name="author" content="자바파커" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="JAVAPARK" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="JAVAPARK — AI · 개발 · 게임을 만듭니다" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="JAVAPARK — AI · 개발 · 게임을 만듭니다" />
+
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>
   <body>
     <slot />
