@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # 매일 22:00 KST (13:00 UTC) — blog.javapark.kr 새 글을 "최근 글"에 반영
+    - cron: '0 13 * * *'
 
 permissions:
   contents: read
