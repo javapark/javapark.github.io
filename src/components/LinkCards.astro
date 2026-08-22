@@ -12,6 +12,11 @@ interface LinkItem {
 // 순서 = 도착한 사람에게 값이 큰 순서.
 // 인스타 릴스·쇼츠를 보고 프로필 링크로 들어오는 사람이 주 유입이므로
 // 개발자에게 의미 있는 것을 위로, 대중 콘텐츠(심리테스트·게임)를 아래로 둔다.
+//
+// 인스타 카드는 일부러 넣지 않는다 (2026-08-15 사용자 결정).
+// javapark.dev 와 daily.devtoon 을 아예 연결하지 않기로 했고, 포털 링크 카드를
+// 통한 간접 연결도 포함이다. 이 페이지 자체가 javapark.dev 프로필 링크이기도 해서
+// 인스타로 되돌리는 카드는 어차피 자기 자신으로 도는 링크다.
 const links: LinkItem[] = [
   {
     title: '개발 블로그',
@@ -31,12 +36,6 @@ const links: LinkItem[] = [
     url: 'https://www.youtube.com/@%EC%9E%90%EB%B0%94%ED%8C%8C%ED%81%AC',
     description: '1분 안에 끝내는 백엔드 개념 쇼츠',
     accent: 'from-red-500/25 to-rose-500/25',
-  },
-  {
-    title: 'Instagram',
-    url: 'https://www.instagram.com/javapark.dev/',
-    description: '기술 시각화 릴스',
-    accent: 'from-pink-500/25 to-orange-400/25',
   },
   {
     title: 'javapark.kr',
