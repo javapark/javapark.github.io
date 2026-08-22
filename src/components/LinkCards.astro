@@ -1,17 +1,42 @@
 ---
+import { tagged } from '../lib/utm';
+
 interface LinkItem {
   title: string;
   url: string;
   description: string;
   accent: string;
+  badge?: string;
 }
 
+// 순서 = 도착한 사람에게 값이 큰 순서.
+// 인스타 릴스·쇼츠를 보고 프로필 링크로 들어오는 사람이 주 유입이므로
+// 개발자에게 의미 있는 것을 위로, 대중 콘텐츠(심리테스트·게임)를 아래로 둔다.
 const links: LinkItem[] = [
   {
     title: '개발 블로그',
     url: 'https://blog.javapark.kr',
-    description: 'AI · Claude · 풀스택 개발 기록',
+    description: '영상에서 다룬 내용을 글로 — 백엔드 · CS · AI',
     accent: 'from-emerald-500/25 to-cyan-500/25',
+  },
+  {
+    title: '백엔드 CS 능력고사',
+    url: 'https://quiz.javapark.kr/t/backend-cs/',
+    description: '20문제 · 몇 점 나오는지 풀어보기',
+    accent: 'from-indigo-500/25 to-cyan-500/25',
+    badge: 'NEW',
+  },
+  {
+    title: 'YouTube',
+    url: 'https://www.youtube.com/@%EC%9E%90%EB%B0%94%ED%8C%8C%ED%81%AC',
+    description: '1분 안에 끝내는 백엔드 개념 쇼츠',
+    accent: 'from-red-500/25 to-rose-500/25',
+  },
+  {
+    title: 'Instagram',
+    url: 'https://www.instagram.com/javapark.dev/',
+    description: '기술 시각화 릴스',
+    accent: 'from-pink-500/25 to-orange-400/25',
   },
   {
     title: 'javapark.kr',
@@ -20,22 +45,16 @@ const links: LinkItem[] = [
     accent: 'from-orange-500/25 to-rose-500/25',
   },
   {
-    title: '1분 게임',
-    url: 'https://game.javapark.kr',
-    description: '한 판에 1분, 짧은 웹 게임',
-    accent: 'from-fuchsia-500/25 to-violet-500/25',
-  },
-  {
     title: '심리테스트',
     url: 'https://quiz.javapark.kr',
     description: '1분 컷 심리테스트 · 트렌드 퀴즈',
     accent: 'from-yellow-400/25 to-rose-500/25',
   },
   {
-    title: 'YouTube',
-    url: 'https://www.youtube.com/@%EC%9E%90%EB%B0%94%ED%8C%8C%ED%81%AC',
-    description: '영상으로 보는 자바파커',
-    accent: 'from-red-500/25 to-rose-500/25',
+    title: '1분 게임',
+    url: 'https://game.javapark.kr',
+    description: '한 판에 1분, 짧은 웹 게임',
+    accent: 'from-fuchsia-500/25 to-violet-500/25',
   },
   {
     title: 'GitHub',
@@ -52,7 +71,7 @@ const links: LinkItem[] = [
     {
       links.map((l) => (
         <a
-          href={l.url}
+          href={tagged(l.url, 'link_card')}
           target="_blank"
           rel="noopener noreferrer"
           class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 transition duration-200 hover:border-white/25 hover:-translate-y-0.5"
@@ -62,7 +81,14 @@ const links: LinkItem[] = [
           />
           <div class="relative flex items-start justify-between gap-4">
             <div>
-              <div class="text-lg font-semibold text-white mb-1">{l.title}</div>
+              <div class="text-lg font-semibold text-white mb-1 flex items-center gap-2">
+                {l.title}
+                {l.badge && (
+                  <span class="text-[10px] font-bold tracking-wider px-1.5 py-0.5 rounded bg-cyan-400/20 text-cyan-200 border border-cyan-300/30">
+                    {l.badge}
+                  </span>
+                )}
+              </div>
               <div class="text-sm text-gray-400 leading-relaxed">{l.description}</div>
             </div>
             <span class="text-gray-500 group-hover:text-white group-hover:translate-x-1 transition duration-200">
