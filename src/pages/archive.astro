@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { fetchAllPosts, formatDate, groupByYear } from '../lib/rss';
+
+// 이 페이지의 목적은 사람이 훑어보는 것 + **검색엔진이 블로그 글을 발견하는 것** 둘이다.
+// blog.javapark.kr 은 2026-05 에 분리된 신생 도메인이라 크롤 예산이 거의 없고,
+// 2026-09 기준 163개 URL 중 147개를 구글이 "존재조차 모르는" 상태다.
+// 다른 도메인(GitHub Pages)에서 전체 글로 dofollow 링크를 걸어 발견 경로를 만든다.
+const posts = await fetchAllPosts('https://blog.javapark.kr/rss.xml');
+const years = groupByYear(posts);
+---
+
+<Layout
+  title="전체 글 목록 — 자바파커"
+  description={`개발 블로그 blog.javapark.kr 의 전체 글 ${posts.length}편. 백엔드·AI·알고리즘·데브옵스 기술 글 모음.`}
+>
+  <main class="px-6 py-14 max-w-5xl mx-auto">
+    <header class="mb-10">
+      <a href="/" class="text-sm text-gray-500 hover:text-gray-300 transition">← 홈</a>
+      <h1 class="text-3xl md:text-4xl font-bold text-white mt-4">전체 글 목록</h1>
+      <p class="text-gray-400 mt-3">
+        개발 블로그
+        <a
+          href="https://blog.javapark.kr"
+          class="text-cyan-400 hover:text-cyan-300 transition"
+          target="_blank"
+          rel="noopener">blog.javapark.kr</a
+        >
+        의 글 {posts.length}편입니다.
+      </p>
+    </header>
+
+    {
+      posts.length === 0 ? (
+        <p class="text-gray-500">
+          목록을 불러오지 못했습니다.{' '}
+          <a
+            href="https://blog.javapark.kr"
+            class="text-cyan-400 hover:text-cyan-300"
+            target="_blank"
+            rel="noopener"
+          >
+            블로그에서 직접 보기 →
+          </a>
+        </p>
+      ) : (
+        years.map(({ year, posts: list }) => (
+          <section class="mb-12">
+            <h2 class="text-lg font-bold text-gray-300 mb-4 pb-2 border-b border-white/10 flex items-baseline gap-3">
+              {year}
+              <span class="text-xs font-normal text-gray-600 tabular-nums">{list.length}편</span>
+            </h2>
+            <ul class="space-y-1">
+              {list.map((p) => (
+                <li>
+                  {/*
+                    UTM 을 붙이지 않는다. 이 페이지의 1순위 목적이 검색엔진의 글 발견이라
+                    링크는 정규 주소 그대로여야 한다. 쿼리를 달면 별개 URL 이 되어
+                    canonical 정리를 한 번 더 거치게 되고 신호가 약해진다.
+                    (홈의 "최근 글"은 유입 계측이 목적이라 UTM 을 그대로 둔다.)
+                  */}
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener"
+                    class="group flex items-baseline justify-between gap-4 py-2.5 px-3 -mx-3 rounded-lg hover:bg-white/[0.04] transition"
+                  >
+                    <span class="text-gray-300 group-hover:text-white transition">{p.title}</span>
+                    <span class="text-xs text-gray-600 shrink-0 tabular-nums">
+                      {formatDate(p.pubDate)}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      )
+    }
+  </main>
+  <Footer />
+</Layout>
