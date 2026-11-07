@@ -1,16 +1,142 @@
 ---
+// 첫 화면 = 블로그 입구 (2026-11-07 개편, 시안 A + 쇼츠 배지 + 아라 사장님).
+// 왼쪽: 소개·버튼·주제 칩·사장님 한마디 / 오른쪽: 가장 최근 글 큰 카드.
+// RSS 를 못 받으면 오른쪽 카드와 글 수만 빠지고 나머지는 그대로 보인다.
+import { fetchAllPosts, formatDate } from '../lib/rss';
+import { tagged } from '../lib/utm';
+
+const BLOG = 'https://blog.javapark.kr';
+const posts = await fetchAllPosts(`${BLOG}/rss.xml`);
+const featured = posts[0];
+
+// RSS 에 카테고리가 없어서 칩은 손으로 고른다. 경로는 블로그 gatsby-node 의 /category/<폴더명>/
+const topics = [
+  { label: 'AI', slug: 'ai' },
+  { label: '백엔드', slug: 'backend' },
+  { label: 'DevOps', slug: 'devops' },
+  { label: 'Claude Code', slug: 'claude-code' },
+  { label: 'JavaScript', slug: 'javascript' },
+  { label: '책 만들기', slug: 'book-making' },
+];
+
+// 최근 글이 7일 안이면 NEW
+const isNew = featured && Date.now() - +new Date(featured.pubDate) < 7 * 864e5;
 ---
 
-<section class="px-6 pt-24 pb-12 md:pt-32 md:pb-16 max-w-3xl mx-auto text-center">
-  <p class="text-xs md:text-sm text-cyan-300/70 tracking-[0.3em] uppercase mb-5">
-    JAVAPARK
-  </p>
-  <h1
-    class="text-4xl md:text-6xl font-bold leading-[1.15] mb-6 bg-gradient-to-r from-white via-cyan-200 to-indigo-300 bg-clip-text text-transparent"
-  >
-    복잡한 걸<br />그림으로 설명합니다
-  </h1>
-  <p class="text-base md:text-lg text-gray-400 leading-relaxed">
-    백엔드 · CS · AI를 1분 영상과 글로. 자바파커입니다.
-  </p>
+<section class="relative px-6 pt-14 pb-10 md:pt-20 md:pb-14 max-w-6xl mx-auto">
+  <div class="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14 items-center">
+    <div>
+      {/* 휴대폰: 사장님은 제목 오른쪽 위에 작게 — 최신 글 카드가 첫 화면에 들어오게 */}
+      <img
+        src="/ara-point.png"
+        alt=""
+        width="266"
+        height="423"
+        class="lg:hidden absolute right-5 top-8 h-24 w-auto"
+      />
+      <p class="text-sm font-bold tracking-wide text-cyan-300">
+        개발 블로그{posts.length > 0 && ` · 글 ${posts.length}편`}
+      </p>
+      <h1 class="mt-4 mb-5 text-4xl md:text-[56px] font-extrabold leading-[1.15] text-white">
+        복잡한 걸<br /><span class="text-cyan-300">그림으로</span> 설명합니다
+      </h1>
+      <p class="text-base md:text-lg text-gray-400 leading-relaxed mb-7">
+        백엔드 · CS · AI. 직접 재 보고, 1분 영상과 글로 풀어 씁니다.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={tagged(featured?.link ?? BLOG, 'hero_cta')}
+          class="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-5 py-3.5 font-bold text-[#0a0a0f] transition hover:bg-cyan-200"
+        >
+          최신 글 읽기 →
+        </a>
+        <a
+          href="/archive/"
+          class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3.5 font-bold text-gray-200 transition hover:border-white/30 hover:text-white"
+        >
+          전체 글 목록
+        </a>
+      </div>
+      <ul class="mt-7 flex flex-wrap gap-2" aria-label="주제별로 보기">
+        {
+          topics.map((t) => (
+            <li>
+              <a
+                href={tagged(`${BLOG}/category/${t.slug}/`, 'hero_topic')}
+                class="inline-block rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 text-sm text-gray-300 transition hover:border-cyan-300/40 hover:text-white"
+              >
+                {t.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      {
+        featured && (
+          <div class="mt-8 hidden lg:flex items-end gap-3">
+            <img
+              src="/ara-point.png"
+              alt="자바파크 카페 아라 사장님"
+              width="266"
+              height="423"
+              class="h-32 w-auto md:h-36 shrink-0"
+            />
+            <p class="mb-10 rounded-2xl rounded-bl-sm border border-white/10 bg-white/[0.06] px-4 py-3 text-sm leading-relaxed text-gray-200">
+              <span class="block text-xs font-bold text-amber-300">아라 사장님의 오늘의 글</span>
+              {featured.title.split(' — ')[0]}
+            </p>
+          </div>
+        )
+      }
+    </div>
+
+    {
+      featured && (
+        <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition hover:border-white/25">
+          <a href={tagged(featured.link, 'hero_featured')} class="group block">
+            {featured.thumbnail && (
+              <img
+                src={featured.thumbnail}
+                alt=""
+                width="1200"
+                height="630"
+                class="block aspect-[1200/630] w-full object-cover"
+              />
+            )}
+            <div class="px-6 pt-5 md:px-7">
+              <div class="flex flex-wrap items-center gap-2">
+                {isNew && (
+                  <span class="rounded-full bg-cyan-300 px-2.5 py-1 text-xs font-extrabold tracking-wider text-[#0a0a0f]">
+                    NEW
+                  </span>
+                )}
+                <span class="text-sm text-gray-500 tabular-nums">{formatDate(featured.pubDate)}</span>
+              </div>
+              <h2 class="mt-3 text-xl md:text-2xl font-bold leading-snug text-white group-hover:text-cyan-100 transition">
+                {featured.title}
+              </h2>
+            </div>
+          </a>
+          <div class="flex items-center gap-4 px-6 pb-6 pt-4 md:px-7">
+            <a
+              href={tagged(featured.link, 'hero_featured')}
+              class="text-sm font-bold text-cyan-300 hover:text-cyan-200"
+            >
+              글 읽기 →
+            </a>
+            {featured.shorts && (
+              <a
+                href={featured.shorts}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 rounded-full border border-red-400/30 bg-red-500/10 px-3 py-1 text-xs font-bold text-red-200 hover:bg-red-500/20"
+              >
+                ▶ 1분 쇼츠로 보기
+              </a>
+            )}
+          </div>
+        </article>
+      )
+    }
+  </div>
 </section>

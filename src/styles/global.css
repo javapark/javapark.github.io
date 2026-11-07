@@ -24,7 +24,11 @@ body {
   background-attachment: fixed;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* base 레이어에 둬야 Tailwind 글자색 유틸리티(text-cyan-300 등)가 링크에서도 먹는다.
+   레이어 밖에 두면 우선순위가 더 높아서 모든 링크가 부모 색(흰색)으로 덮인다. */
+@layer base {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
