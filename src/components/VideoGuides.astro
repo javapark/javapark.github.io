@@ -1,0 +1,92 @@
+---
+// 영상 자료 — 인스타 릴스·쇼츠를 보고 프로필 링크로 들어온 사람이 "방금 본 영상의 해결법"을 바로 찾게 한다.
+// 2026-11-14 추가. 근거: 인스타 인사이트(조회 1,100~2,000 중 프로필 방문 0~16) + @aiscene.kr · @_choosit 분석
+// (자료·해결법을 링크에 모아 두는 계정이 저장·공유·팔로우가 높다). 새 릴스를 올리면 맨 앞에 한 줄 추가한다.
+// 유튜브·인스타 링크에는 UTM 을 붙이지 않는다(src/lib/utm.ts 정책).
+interface Guide {
+  date: string;
+  title: string;
+  answer: string;
+  steps: string[];
+  ig?: string;
+  yt?: string;
+}
+
+const guides: Guide[] = [
+  {
+    date: '11.14',
+    title: '가족 이모지 넣었더니 아이들이 사라졌다',
+    answer: '눈에는 1글자여도 JavaScript·HTML은 가족 이모지를 11칸으로 셉니다.',
+    steps: ['닉네임에 이모지를 넣었다면 저장한 뒤 한 번 더 확인', '개발자라면 글자 수는 Intl.Segmenter 로 세기', '제한을 넘길 땐 이모지 중간 말고 앞에서 자르기'],
+    ig: 'https://www.instagram.com/reel/Dft0Cx6BcKI/',
+    yt: 'https://youtube.com/shorts/db6l-RPiIck',
+  },
+  {
+    date: '11.13',
+    title: '나한테 카톡 보내기 vs 에어드롭',
+    answer: '나한테 보낸 카톡 영상도 서버를 왕복하고, 그냥 보내면 변환돼요.',
+    steps: ['아이폰 ↔ 맥: 에어드롭', '갤럭시 ↔ 갤럭시·윈도우: 퀵 쉐어', '아이폰 ↔ 윈도우: 같은 와이파이에서 LocalSend', "꼭 카톡이면 + → '파일'로 (원본, 한 개 300MB)"],
+    ig: 'https://www.instagram.com/reel/Dfryz0vPluz/',
+    yt: 'https://youtube.com/shorts/oCIFTU8Hm_o',
+  },
+  {
+    date: '11.13',
+    title: 'QR코드, 30% 가려도 찍힐까?',
+    answer: '가운데는 H 등급도 17.5%까지, 모서리 네모는 하나만 가려도 실패했어요 (jsQR 실측).',
+    steps: ['로고는 H 등급 + 가운데 + 작게', '모서리 네모 3개는 비워 두기', '배포 전에 여러 폰으로 찍어 보기'],
+    ig: 'https://www.instagram.com/reel/DfrynIEh6-o/',
+    yt: 'https://youtube.com/shorts/TDqPKhnTsos',
+  },
+  {
+    date: '11.13',
+    title: '와이파이 풀칸인데 인터넷이 안 돼요',
+    answer: '와이파이 칸은 "내 기기 ↔ 공유기"까지의 신호예요. 인터넷 전체 상태가 아니에요.',
+    steps: ['집의 다른 기기도 안 되면 → 공유기 바깥(인터넷 회선) 쪽', '이 앱만 안 되면 → 그 앱·서비스 쪽', '"와이파이 연결 ≠ 인터넷 연결"'],
+    ig: 'https://www.instagram.com/reel/Dfrb8P6Rshs/',
+  },
+];
+---
+
+<section id="videos" class="px-6 py-10 max-w-6xl mx-auto" aria-labelledby="videos-title">
+  <div class="mb-5">
+    <h2 id="videos-title" class="text-xl md:text-2xl font-bold text-white">방금 본 영상의 해결법</h2>
+    <p class="text-sm text-gray-500 mt-1">릴스·쇼츠에서 오셨다면 여기부터 — 영상 속 정리를 한 장씩 모아 뒀어요</p>
+  </div>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {
+      guides.map((g) => (
+        <li class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <span class="tabular-nums">{g.date}</span>
+            <span class="rounded bg-cyan-400/15 px-1.5 py-0.5 font-bold text-cyan-200">생활 기술</span>
+          </div>
+          <h3 class="mt-2 text-lg font-bold leading-snug text-white">{g.title}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-gray-300">{g.answer}</p>
+          <p class="mt-4 text-xs font-bold tracking-wider text-emerald-300">그래서 이렇게 하세요</p>
+          <ol class="mt-2 space-y-1.5">
+            {g.steps.map((s, i) => (
+              <li class="flex gap-2 text-sm leading-relaxed text-gray-200">
+                <span class="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald-400/20 text-[11px] font-bold text-emerald-200">
+                  {i + 1}
+                </span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ol>
+          <div class="mt-5 flex flex-wrap gap-2 text-sm">
+            {g.ig && (
+              <a href={g.ig} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-pink-300/30 px-3 py-1.5 font-semibold text-pink-200 hover:bg-pink-300/10">
+                인스타 릴스 →
+              </a>
+            )}
+            {g.yt && (
+              <a href={g.yt} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-red-300/30 px-3 py-1.5 font-semibold text-red-200 hover:bg-red-300/10">
+                ▶ 유튜브 쇼츠
+              </a>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
