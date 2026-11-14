@@ -3,6 +3,8 @@
 // 2026-11-14 추가. 근거: 인스타 인사이트(조회 1,100~2,000 중 프로필 방문 0~16) + @aiscene.kr · @_choosit 분석
 // (자료·해결법을 링크에 모아 두는 계정이 저장·공유·팔로우가 높다). 새 릴스를 올리면 맨 앞에 한 줄 추가한다.
 // 유튜브·인스타 링크에는 UTM 을 붙이지 않는다(src/lib/utm.ts 정책).
+// 2026-11-14: 검색창 추가 — 영상 카드(제목·답·키워드)와 블로그 전체 글(RSS 제목)을 한 번에 거른다. 빌드 타임에 색인을 만들어 넣고 브라우저에서만 거른다.
+import { fetchAllPosts } from '../lib/rss';
 interface Guide {
   date: string;
   title: string;
@@ -10,6 +12,8 @@ interface Guide {
   steps: string[];
   ig?: string;
   yt?: string;
+  /** 검색에만 쓰는 말(동의어·영문). 화면에는 안 보인다 */
+  keywords?: string;
 }
 
 const guides: Guide[] = [
@@ -20,6 +24,7 @@ const guides: Guide[] = [
     steps: ['닉네임에 이모지를 넣었다면 저장한 뒤 한 번 더 확인', '개발자라면 글자 수는 Intl.Segmenter 로 세기', '제한을 넘길 땐 이모지 중간 말고 앞에서 자르기'],
     ig: 'https://www.instagram.com/reel/Dft0Cx6BcKI/',
     yt: 'https://youtube.com/shorts/db6l-RPiIck',
+    keywords: '이모지 emoji 글자수 글자 수 닉네임 maxlength length 문자열 유니코드 grapheme 그래핌',
   },
   {
     date: '11.13',
@@ -28,6 +33,7 @@ const guides: Guide[] = [
     steps: ['아이폰 ↔ 맥: 에어드롭', '갤럭시 ↔ 갤럭시·윈도우: 퀵 쉐어', '아이폰 ↔ 윈도우: 같은 와이파이에서 LocalSend', "꼭 카톡이면 + → '파일'로 (원본, 한 개 300MB)"],
     ig: 'https://www.instagram.com/reel/Dfryz0vPluz/',
     yt: 'https://youtube.com/shorts/oCIFTU8Hm_o',
+    keywords: '카카오톡 카톡 나와의 채팅 에어드롭 airdrop 에어드랍 퀵쉐어 quick share localsend 파일 전송 원본 화질',
   },
   {
     date: '11.13',
@@ -36,6 +42,7 @@ const guides: Guide[] = [
     steps: ['로고는 H 등급 + 가운데 + 작게', '모서리 네모 3개는 비워 두기', '배포 전에 여러 폰으로 찍어 보기'],
     ig: 'https://www.instagram.com/reel/DfrynIEh6-o/',
     yt: 'https://youtube.com/shorts/TDqPKhnTsos',
+    keywords: 'qr qr코드 큐알 로고 오류 정정 인식 메뉴판',
   },
   {
     date: '11.13',
@@ -43,8 +50,12 @@ const guides: Guide[] = [
     answer: '와이파이 칸은 "내 기기 ↔ 공유기"까지의 신호예요. 인터넷 전체 상태가 아니에요.',
     steps: ['집의 다른 기기도 안 되면 → 공유기 바깥(인터넷 회선) 쪽', '이 앱만 안 되면 → 그 앱·서비스 쪽', '"와이파이 연결 ≠ 인터넷 연결"'],
     ig: 'https://www.instagram.com/reel/Dfrb8P6Rshs/',
+    keywords: '와이파이 wifi 와파 풀칸 공유기 인터넷 안됨 연결 신호',
   },
 ];
+
+const posts = await fetchAllPosts('https://blog.javapark.kr/rss.xml');
+const postIndex = posts.map((p) => ({ t: p.title, u: p.link, s: p.shorts }));
 ---
 
 <section id="videos" class="px-6 py-10 max-w-6xl mx-auto" aria-labelledby="videos-title">
@@ -52,10 +63,28 @@ const guides: Guide[] = [
     <h2 id="videos-title" class="text-xl md:text-2xl font-bold text-white">방금 본 영상의 해결법</h2>
     <p class="text-sm text-gray-500 mt-1">릴스·쇼츠에서 오셨다면 여기부터 — 영상 속 정리를 한 장씩 모아 뒀어요</p>
   </div>
+  <div class="mb-5">
+    <label for="vg-q" class="sr-only">영상·글 검색</label>
+    <input
+      id="vg-q"
+      type="search"
+      inputmode="search"
+      autocomplete="off"
+      placeholder="🔍 영상·글 검색 (예: 카톡, 이모지, 도커)"
+      class="w-full rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-[15px] text-white placeholder:text-gray-500 focus:border-cyan-300/60 focus:outline-none"
+    />
+    <div id="vg-posts" class="mt-3 hidden">
+      <p class="mb-2 text-xs font-bold tracking-wider text-gray-500">블로그 글 <span id="vg-count"></span></p>
+      <ul id="vg-post-list" class="space-y-1"></ul>
+    </div>
+    <p id="vg-empty" class="mt-3 hidden text-sm text-gray-500">
+      찾는 내용이 없어요. <a href="https://blog.javapark.kr/search/" class="text-cyan-400 hover:text-cyan-300">블로그에서 다시 검색 →</a>
+    </p>
+  </div>
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {
       guides.map((g) => (
-        <li class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+        <li data-vg={[g.title, g.answer, g.steps.join(' '), g.keywords ?? ''].join(' ')} class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
           <div class="flex items-center gap-2 text-xs text-gray-500">
             <span class="tabular-nums">{g.date}</span>
             <span class="rounded bg-cyan-400/15 px-1.5 py-0.5 font-bold text-cyan-200">생활 기술</span>
@@ -90,3 +119,45 @@ const guides: Guide[] = [
     }
   </ul>
 </section>
+
+<script define:vars={{ postIndex }}>
+  (() => {
+    const q = document.getElementById('vg-q');
+    if (!q) return;
+    const norm = (s) => String(s).toLowerCase().replace(/\s+/g, '');
+    const cards = [...document.querySelectorAll('[data-vg]')].map((el) => ({ el, key: norm(el.dataset.vg) }));
+    const box = document.getElementById('vg-posts');
+    const list = document.getElementById('vg-post-list');
+    const count = document.getElementById('vg-count');
+    const empty = document.getElementById('vg-empty');
+    const posts = postIndex.map((p) => ({ ...p, key: norm(p.t) }));
+    // 블로그 제목은 영문 표기가 많다(Docker, Claude…). 한글로 쳐도 걸리게 별칭을 둔다.
+    const ALIAS = { 도커: ['docker'], 쿠버네티스: ['k8s', 'kubernetes'], 쿠베: ['k8s', 'kubernetes'], 클로드: ['claude'], 깃: ['git'], 깃허브: ['github'], 자바스크립트: ['javascript', 'js'], 리액트: ['react'], 파이썬: ['python'], 레디스: ['redis'], 카톡: ['카카오톡'], 와이파이: ['wifi', 'wi-fi'], 큐알: ['qr'] };
+    const alts = (t) => [t, ...(ALIAS[t] || []), ...Object.entries(ALIAS).filter(([, v]) => v.includes(t)).map(([k]) => k)];
+    const run = () => {
+      const terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean).map(norm).map(alts);
+      const hit = (key) => terms.every((a) => a.some((t) => key.includes(t)));
+      let shown = 0;
+      cards.forEach((c) => { const ok = !terms.length || hit(c.key); c.el.hidden = !ok; if (ok) shown++; });
+      list.replaceChildren();
+      if (!terms.length) { box.classList.add('hidden'); empty.classList.add('hidden'); return; }
+      const found = posts.filter((p) => hit(p.key));
+      found.slice(0, 8).forEach((p) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-baseline gap-2';
+        const a = document.createElement('a');
+        a.href = p.u; a.textContent = p.t;
+        a.className = 'flex-1 rounded-lg px-3 py-2 text-[15px] text-gray-200 hover:bg-white/[0.05] hover:text-white';
+        li.append(a);
+        if (p.s) { const y = document.createElement('a'); y.href = p.s; y.target = '_blank'; y.rel = 'noopener noreferrer'; y.textContent = '▶ 쇼츠'; y.className = 'shrink-0 text-xs font-bold text-red-300/80 hover:text-red-200'; li.append(y); }
+        list.append(li);
+      });
+      count.textContent = found.length > 8 ? `(${found.length}편 중 8편)` : `(${found.length}편)`;
+      box.classList.toggle('hidden', found.length === 0);
+      empty.classList.toggle('hidden', found.length > 0 || shown > 0);
+    };
+    q.addEventListener('input', run);
+    const pre = new URLSearchParams(location.search).get('q');
+    if (pre) { q.value = pre; run(); }
+  })();
+</script>
