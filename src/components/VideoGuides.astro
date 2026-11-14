@@ -5,11 +5,14 @@
 // 유튜브·인스타 링크에는 UTM 을 붙이지 않는다(src/lib/utm.ts 정책).
 // 2026-11-14: 검색창 추가 — 영상 카드(제목·답·키워드)와 블로그 전체 글(RSS 제목)을 한 번에 거른다. 빌드 타임에 색인을 만들어 넣고 브라우저에서만 거른다.
 import { fetchAllPosts } from '../lib/rss';
+import { tagged } from '../lib/utm';
 interface Guide {
   date: string;
   title: string;
   answer: string;
   steps: string[];
+  /** 짝 블로그 글(전체 해설). 카드의 주 버튼 — 영상에서 온 사람을 다시 영상으로 돌려보내지 않는다 */
+  post?: string;
   ig?: string;
   yt?: string;
   /** 검색에만 쓰는 말(동의어·영문). 화면에는 안 보인다 */
@@ -22,6 +25,7 @@ const guides: Guide[] = [
     title: '가족 이모지 넣었더니 아이들이 사라졌다',
     answer: '눈에는 1글자여도 JavaScript·HTML은 가족 이모지를 11칸으로 셉니다.',
     steps: ['닉네임에 이모지를 넣었다면 저장한 뒤 한 번 더 확인', '개발자라면 글자 수는 Intl.Segmenter 로 세기', '제한을 넘길 땐 이모지 중간 말고 앞에서 자르기'],
+    post: 'https://blog.javapark.kr/emoji-string-length/',
     ig: 'https://www.instagram.com/reel/Dft0Cx6BcKI/',
     yt: 'https://youtube.com/shorts/db6l-RPiIck',
     keywords: '이모지 emoji 글자수 글자 수 닉네임 maxlength length 문자열 유니코드 grapheme 그래핌',
@@ -31,6 +35,7 @@ const guides: Guide[] = [
     title: '나한테 카톡 보내기 vs 에어드롭',
     answer: '나한테 보낸 카톡 영상도 서버를 왕복하고, 그냥 보내면 변환돼요.',
     steps: ['아이폰 ↔ 맥: 에어드롭', '갤럭시 ↔ 갤럭시·윈도우: 퀵 쉐어', '아이폰 ↔ 윈도우: 같은 와이파이에서 LocalSend', "꼭 카톡이면 + → '파일'로 (원본, 한 개 300MB)"],
+    post: 'https://blog.javapark.kr/kakaotalk-vs-airdrop/',
     ig: 'https://www.instagram.com/reel/Dfryz0vPluz/',
     yt: 'https://youtube.com/shorts/oCIFTU8Hm_o',
     keywords: '카카오톡 카톡 나와의 채팅 에어드롭 airdrop 에어드랍 퀵쉐어 quick share localsend 파일 전송 원본 화질',
@@ -40,6 +45,7 @@ const guides: Guide[] = [
     title: 'QR코드, 30% 가려도 찍힐까?',
     answer: '가운데는 H 등급도 17.5%까지, 모서리 네모는 하나만 가려도 실패했어요 (jsQR 실측).',
     steps: ['로고는 H 등급 + 가운데 + 작게', '모서리 네모 3개는 비워 두기', '배포 전에 여러 폰으로 찍어 보기'],
+    post: 'https://blog.javapark.kr/qr-code-error-correction/',
     ig: 'https://www.instagram.com/reel/DfrynIEh6-o/',
     yt: 'https://youtube.com/shorts/TDqPKhnTsos',
     keywords: 'qr qr코드 큐알 로고 오류 정정 인식 메뉴판',
@@ -49,6 +55,7 @@ const guides: Guide[] = [
     title: '와이파이 풀칸인데 인터넷이 안 돼요',
     answer: '와이파이 칸은 "내 기기 ↔ 공유기"까지의 신호예요. 인터넷 전체 상태가 아니에요.',
     steps: ['집의 다른 기기도 안 되면 → 공유기 바깥(인터넷 회선) 쪽', '이 앱만 안 되면 → 그 앱·서비스 쪽', '"와이파이 연결 ≠ 인터넷 연결"'],
+    post: 'https://blog.javapark.kr/wifi-full-bars-no-internet/',
     ig: 'https://www.instagram.com/reel/Dfrb8P6Rshs/',
     yt: 'https://youtube.com/shorts/BpOUJMBK0wo',
     keywords: '와이파이 wifi 와파 풀칸 공유기 인터넷 안됨 연결 신호',
@@ -62,7 +69,7 @@ const postIndex = posts.map((p) => ({ t: p.title, u: p.link, s: p.shorts }));
 <section id="videos" class="px-6 py-10 max-w-6xl mx-auto" aria-labelledby="videos-title">
   <div class="mb-5">
     <h2 id="videos-title" class="text-xl md:text-2xl font-bold text-white">방금 본 영상의 해결법</h2>
-    <p class="text-sm text-gray-500 mt-1">릴스·쇼츠에서 오셨다면 여기부터 — 영상 속 정리를 한 장씩 모아 뒀어요</p>
+    <p class="text-sm text-gray-500 mt-1">릴스·쇼츠에서 오셨다면 여기부터 — 영상 속 정리와 전체 해설 글을 모아 뒀어요</p>
   </div>
   <div class="mb-5">
     <label for="vg-q" class="sr-only">영상·글 검색</label>
@@ -90,7 +97,9 @@ const postIndex = posts.map((p) => ({ t: p.title, u: p.link, s: p.shorts }));
             <span class="tabular-nums">{g.date}</span>
             <span class="rounded bg-cyan-400/15 px-1.5 py-0.5 font-bold text-cyan-200">생활 기술</span>
           </div>
-          <h3 class="mt-2 text-lg font-bold leading-snug text-white">{g.title}</h3>
+          <h3 class="mt-2 text-lg font-bold leading-snug text-white">
+            {g.post ? <a href={tagged(g.post, 'video_guide')} class="hover:text-cyan-200">{g.title}</a> : g.title}
+          </h3>
           <p class="mt-2 text-[15px] leading-relaxed text-gray-300">{g.answer}</p>
           <p class="mt-4 text-xs font-bold tracking-wider text-emerald-300">그래서 이렇게 하세요</p>
           <ol class="mt-2 space-y-1.5">
@@ -103,15 +112,20 @@ const postIndex = posts.map((p) => ({ t: p.title, u: p.link, s: p.shorts }));
               </li>
             ))}
           </ol>
-          <div class="mt-5 flex flex-wrap gap-2 text-sm">
+          <div class="mt-5 flex flex-wrap items-center gap-2 text-sm">
+            {g.post && (
+              <a href={tagged(g.post, 'video_guide')} class="rounded-lg bg-cyan-300 px-4 py-2 font-extrabold text-slate-950 hover:bg-cyan-200">
+                전체 해설 글 읽기 →
+              </a>
+            )}
             {g.ig && (
-              <a href={g.ig} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-pink-300/30 px-3 py-1.5 font-semibold text-pink-200 hover:bg-pink-300/10">
-                인스타 릴스 →
+              <a href={g.ig} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-white/15 px-3 py-1.5 text-xs font-semibold text-gray-300 hover:bg-white/10">
+                릴스
               </a>
             )}
             {g.yt && (
-              <a href={g.yt} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-red-300/30 px-3 py-1.5 font-semibold text-red-200 hover:bg-red-300/10">
-                ▶ 유튜브 쇼츠
+              <a href={g.yt} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-white/15 px-3 py-1.5 text-xs font-semibold text-gray-300 hover:bg-white/10">
+                ▶ 쇼츠
               </a>
             )}
           </div>
