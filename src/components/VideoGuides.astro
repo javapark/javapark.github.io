@@ -162,3 +162,18 @@ const postIndex = posts.map((p) => ({ t: p.title, u: p.link, s: p.shorts }));
     if (pre) { q.value = pre; run(); }
   })();
 </script>
+
+<script is:inline>
+  // 인스타 프로필 링크로 들어오면 바로 「방금 본 영상의 해결법」으로 내려 준다(2026-11-14).
+  // 인스타는 링크의 # 를 %23 으로 바꿔 버려(utm_medium=bio#videos) 주소의 #videos 가 안 먹는다.
+  // 그래서 인스타 표식(utm_source=instagram · utm_content=link_in_bio · 인스타 referrer)이 있으면 스크립트로 이동한다.
+  (() => {
+    if (location.hash) return;
+    const p = new URLSearchParams(location.search);
+    let fromIg = p.get('utm_source') === 'instagram' || p.get('utm_content') === 'link_in_bio' || (p.get('utm_medium') || '').includes('#videos');
+    try { fromIg = fromIg || new URL(document.referrer).hostname.includes('instagram.com'); } catch {}
+    if (!fromIg) return;
+    const go = () => document.getElementById('videos')?.scrollIntoView({ block: 'start' });
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+  })();
+</script>
