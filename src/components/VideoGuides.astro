@@ -8,6 +8,8 @@ import { fetchAllPosts } from '../lib/rss';
 import { tagged } from '../lib/utm';
 interface Guide {
   date: string;
+  /** 카드 배지. 없으면 '생활 기술' */
+  tag?: string;
   title: string;
   answer: string;
   steps: string[];
@@ -20,6 +22,16 @@ interface Guide {
 }
 
 const guides: Guide[] = [
+  {
+    date: '11.15',
+    tag: '직접 써 본 스킬',
+    title: 'line-art-animation 직접 써봤어요 — 움직이는 스튜디오 만들기',
+    answer: 'SVG와 TypeScript로 커피·고양이·서버·밤 조명이 클릭에 반응하는 2층 스튜디오를 만들었어요.',
+    steps: ['똑같이 띄우기: 전체 소스 ZIP을 풀고 npm ci → npm run dev', '내 장면 만들기: 제작 프롬프트를 코딩 에이전트에 붙여 넣기', '실행하며 수정 프롬프트로 다듬고, 출력 프롬프트로 MP4 만들기'],
+    post: 'https://blog.javapark.kr/line-art-animation/',
+    ig: 'https://www.instagram.com/reel/Dfv35r2t_n_/',
+    keywords: 'line-art-animation 라인아트 라인 아트 svg 애니메이션 typescript 타입스크립트 스튜디오 프롬프트 ai코딩 코딩 에이전트 클로드 claude 데모',
+  },
   {
     date: '11.14',
     title: '가족 이모지 넣었더니 아이들이 사라졌다',
@@ -95,7 +107,7 @@ const postIndex = posts.map((p) => ({ t: p.title, u: p.link, s: p.shorts }));
         <li data-vg={[g.title, g.answer, g.steps.join(' '), g.keywords ?? ''].join(' ')} class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
           <div class="flex items-center gap-2 text-xs text-gray-500">
             <span class="tabular-nums">{g.date}</span>
-            <span class="rounded bg-cyan-400/15 px-1.5 py-0.5 font-bold text-cyan-200">생활 기술</span>
+            <span class="rounded bg-cyan-400/15 px-1.5 py-0.5 font-bold text-cyan-200">{g.tag ?? '생활 기술'}</span>
           </div>
           <h3 class="mt-2 text-lg font-bold leading-snug text-white">
             {g.post ? <a href={tagged(g.post, 'video_guide')} class="hover:text-cyan-200">{g.title}</a> : g.title}
